@@ -12,6 +12,7 @@
         <module name="tingshuo-common" />
         <module name="tingshuo-activity" />
         <module name="tingshuo-gateway" />
+        <module name="tingshuo-modules" />
         <module name="tingshuo-core" />
       </profile>
     </annotationProcessing>

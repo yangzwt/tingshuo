@@ -8,6 +8,8 @@
     <artifactId>tingshuo-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <name>tingshuo</name>
+    <description>听说-微服务架构项目</description>
     <modules>
         <!--听说项目-工作流-->
         <module>tingshuo-activity</module>
@@ -23,12 +25,53 @@
         <module>tingshuo-job</module>
         <!--听说项目-核心基础-->
         <module>tingshuo-starter</module>
+        <module>tingshuo-modules</module>
     </modules>
-
     <properties>
         <!--项目依赖文件-->
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <!--项目指定运行环境-->
+        <java.version>1.8</java.version>
+        <!--指定全局Cloud版本-->
+        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <!--指定springboot版本对应-->
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
     </properties>
+
+    <!-- 统一依赖声明 -->
+    <dependencyManagement>
+    <dependencies>
+        <!-- SpringCloud 微服务 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <!-- SpringBoot 依赖配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring-boot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+
+    </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--项目基础依赖文件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+
 
 </project>
