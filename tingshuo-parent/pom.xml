@@ -15,17 +15,21 @@
         <module>tingshuo-activity</module>
         <!--听说项目-对外接口服务-->
         <module>tingshuo-api</module>
-        <!--听说项目-依赖工具包-->
-        <module>tingshuo-common</module>
-        <!--听说项目-核心组件-->
-        <module>tingshuo-core</module>
+
+
+
         <!--听说项目-服务网关-->
         <module>tingshuo-gateway</module>
         <!--听说项目-定时任务-->
         <module>tingshuo-job</module>
         <!--听说项目-核心基础-->
         <module>tingshuo-starter</module>
+        <!--听说项目-基础业务模块-->
         <module>tingshuo-modules</module>
+        <!--听说项目-依赖工具包-->
+        <module>tingshuo-common</module>
+
+
     </modules>
     <properties>
         <!--项目依赖文件-->
@@ -37,6 +41,10 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <!--指定springboot版本对应-->
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <!--指定mybatis版本对应-->
+        <!--<spring-boot.mybatis>2.2.0</spring-boot.mybatis>-->
+        <!---->
+
     </properties>
 
     <!-- 统一依赖声明 -->
@@ -59,7 +67,12 @@
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-
+        <!-- Mybatis 依赖配置 -->
+        <!--<dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${spring-boot.mybatis}</version>
+        </dependency>-->
 
     </dependencies>
     </dependencyManagement>
@@ -70,6 +83,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+
     </dependencies>
 
 

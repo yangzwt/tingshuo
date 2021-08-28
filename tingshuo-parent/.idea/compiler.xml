@@ -9,12 +9,15 @@
         <module name="tingshuo-api" />
         <module name="tingshuo-job" />
         <module name="tingshuo-starter" />
-        <module name="tingshuo-common" />
         <module name="tingshuo-activity" />
         <module name="tingshuo-gateway" />
         <module name="tingshuo-modules" />
-        <module name="tingshuo-core" />
+        <module name="tingshuo-common-core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tingshuo-common" target="8" />
+      <module name="tingshuo-core" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
