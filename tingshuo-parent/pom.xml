@@ -41,6 +41,7 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <!--指定springboot版本对应-->
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <!--<spring-boot.version>2.4.10</spring-boot.version>-->
         <!--指定mybatis版本对应-->
         <!--<spring-boot.mybatis>2.2.0</spring-boot.mybatis>-->
         <!---->
@@ -73,6 +74,25 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${spring-boot.mybatis}</version>
         </dependency>-->
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <!-- Pagehelper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.5</version>
+        </dependency>
+        <!--pg数据库驱动-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.12</version>
+            <scope>runtime</scope>
+        </dependency>
 
     </dependencies>
     </dependencyManagement>
@@ -83,8 +103,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <!-- Pagehelper -->
+       <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+           <version>1.2.5</version>
+        </dependency>
+        <!--pg数据库驱动-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 

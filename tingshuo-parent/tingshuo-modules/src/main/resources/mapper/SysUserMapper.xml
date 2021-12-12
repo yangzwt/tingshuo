@@ -65,11 +65,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			su.user_name,
 			su.create_time,
 			su.phonenumber,
-			su.email,
+			su.email
 		FROM
 			sys_user su
 		where
-			su.
+			su.user_id= #{user_id}
 	</select>
 
 

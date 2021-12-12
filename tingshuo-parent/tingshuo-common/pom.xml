@@ -39,22 +39,34 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!--oracle 驱动-->
         <dependency>
             <groupId>cn.easyproject</groupId>
             <artifactId>orai18n</artifactId>
             <version>12.1.0.2.0</version>
         </dependency>
-        <!--oracle 驱动-->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc8</artifactId>
             <version>12.2.0.1.0</version>
+        </dependency>
+        <!--pg数据库驱动-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.12</version>
+            <scope>runtime</scope>
         </dependency>
         <!-- druid 连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
+        </dependency>
+        <!-- Pagehelper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

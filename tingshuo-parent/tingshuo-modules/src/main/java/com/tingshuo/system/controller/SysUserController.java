@@ -1,15 +1,19 @@
 package com.tingshuo.system.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.common.core.utils.StringUtils;
+import com.tingshuo.common.core.utils.page.QueryGenerator;
 import com.tingshuo.system.entity.LoginUser;
 import com.tingshuo.system.entity.SysUser;
 import com.tingshuo.system.service.ISysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName SysUserController
@@ -19,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
-public class SysUserController {
+public class SysUserController  {
     @Autowired
     private  ISysUserService sysUserService;
 
@@ -47,4 +51,12 @@ public class SysUserController {
         return R.ok(sysUserVo);
     }
 
+    public R<IPage<SysUser>> selectPageList(SysUser user ,
+                                            @RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
+                                            @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
+                                            HttpServletRequest req){
+        R<IPage<SysUser>> result = new R<IPage<SysUser>>();
+
+        return  result;
+    }
 }

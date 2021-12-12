@@ -5,13 +5,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/tingshuo-common/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/tingshuo-common/tingshuo-demo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/tingshuo-common-core/pom.xml" />
         <option value="$PROJECT_DIR$/tingshuo-common/pom.xml" />
-        <option value="$PROJECT_DIR$/tingshuo-core/pom.xml" />
       </set>
     </option>
   </component>
