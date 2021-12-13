@@ -1,0 +1,9 @@
+1.开发技术
+	node.js
+	vue.js
+2.编译工具
+	vscode和webstrom等
+3.运行环境
+	nginx
+4.本地开发环境
+	Windows10
