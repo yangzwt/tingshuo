@@ -20,7 +20,7 @@ import java.util.List;
  * @date 2021年12月12日 20:35
  **/
 @SpringBootTest
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 public class SysUserTest {
 
     @Autowired

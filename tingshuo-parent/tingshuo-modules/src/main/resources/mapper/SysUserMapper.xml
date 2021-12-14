@@ -23,8 +23,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"     column="update_by"    />
 		<result property="updateTime"   column="update_time"  />
 		<result property="remark"       column="remark"       />
+<!--
 		<association property="dept"    column="dept_id" javaType="com.tingshuo.system.entity.SysDept" resultMap="deptResult" />
+-->
+<!--
 		<collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
+-->
 	</resultMap>
 	
 	<resultMap id="deptResult" type="com.tingshuo.system.entity.SysDept">
@@ -59,17 +63,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    <include refid="selectUserVo"/>
 		where u.user_name = #{userName}
 	</select>
-    <select id="selectUserList" resultType="com.tingshuo.system.entity.SysUser">
+    <select id="selectUserList" resultMap="SysUserResult">
 		SELECT
-			su.user_id,
-			su.user_name,
-			su.create_time,
-			su.phonenumber,
+			su.user_id ,
+			su.user_name ,
+			su.create_time ,
+			su.phonenumber ,
 			su.email
 		FROM
 			sys_user su
-		where
-			su.user_id= #{user_id}
+	        where 1=1
 	</select>
 
 

@@ -8,3 +8,7 @@ https://spring.io/projects/spring-boot#learn
 # 5.数据库使用pg数据库10.17
 # 6.使用@Test进行代码初步测试12.12
 # 7.提交tingshuo-项目的vue前端基础架构文件夹12.12 pm22:01
+# 8.使用分页时注意事项
+##com.github.pagehelper 和 pagehelper-spring-boot-starter
+## 需要剔除 mybatis和mybatis-spring依赖 
+# 9.完成基本分页查询操作：2021年12月14日22:50:59 

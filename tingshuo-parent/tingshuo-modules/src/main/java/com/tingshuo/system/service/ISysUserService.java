@@ -1,8 +1,10 @@
 package com.tingshuo.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysUser;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
  * @Auth yangZ
  * @Date 2020-08-15 20:53
  */
+
 public interface ISysUserService extends IService<SysUser> {
     /**
      * 根据用户名查询用户信息
@@ -22,8 +25,10 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 分页查询用户信息
+     * @param pageNo
+     * @param pageSize
      * @param sysUser
      * @return
      */
-    R<SysUser> selectUserList(Integer pageNo, Integer pageSize);
+    PageResult selectUserList(Integer pageNo, Integer pageSize,SysUser sysUser);
 }

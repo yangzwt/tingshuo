@@ -3,6 +3,9 @@ package com.tingshuo.system.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.common.core.utils.StringUtils;
 import com.tingshuo.common.core.utils.page.QueryGenerator;
@@ -50,13 +53,10 @@ public class SysUserController  {
         //sysUserVo.setPermissions(permissions);
         return R.ok(sysUserVo);
     }
-
-    public R<IPage<SysUser>> selectPageList(SysUser user ,
-                                            @RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
-                                            @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
-                                            HttpServletRequest req){
-        R<IPage<SysUser>> result = new R<IPage<SysUser>>();
-
-        return  result;
+    @GetMapping("/selectUserPageList")
+    public PageResult selectPageList(@RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
+                                     @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
+                                     SysUser sysUser){
+        return  sysUserService.selectUserList(pageNo,pageSize,sysUser);
     }
 }
