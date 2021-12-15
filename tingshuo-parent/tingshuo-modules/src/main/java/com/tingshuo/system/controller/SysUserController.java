@@ -8,15 +8,14 @@ import com.github.pagehelper.PageInfo;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.common.core.utils.StringUtils;
-import com.tingshuo.common.core.utils.page.QueryGenerator;
+import com.tingshuo.system.api.SysUserApi;
 import com.tingshuo.system.entity.LoginUser;
 import com.tingshuo.system.entity.SysUser;
+import com.tingshuo.system.param.SysUserPo;
 import com.tingshuo.system.service.ISysUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName SysUserController
@@ -26,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/user")
-public class SysUserController  {
+public class SysUserController implements SysUserApi {
     @Autowired
     private  ISysUserService sysUserService;
 
@@ -58,5 +57,19 @@ public class SysUserController  {
                                      @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
                                      SysUser sysUser){
         return  sysUserService.selectUserList(pageNo,pageSize,sysUser);
+    }
+
+    /**
+     * 用户分页查询
+     * @param pageNo
+     * @param pageSize
+     * @param sysUserPo
+     * @return
+     */
+    @Override
+    public PageResult selectUserPageList(Integer pageNo, Integer pageSize, SysUserPo sysUserPo) {
+        SysUser sysUser = new SysUser();
+        BeanUtils.copyProperties(sysUserPo,sysUser);//对象拷贝
+        return sysUserService.selectUserPageList(pageNo,pageSize,sysUser);
     }
 }

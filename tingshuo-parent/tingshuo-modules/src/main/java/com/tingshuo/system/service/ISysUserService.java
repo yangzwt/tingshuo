@@ -31,4 +31,13 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     PageResult selectUserList(Integer pageNo, Integer pageSize,SysUser sysUser);
+
+    /**
+     * 用户查询分页列表接口
+     * @param pageNo
+     * @param pageSize
+     * @param sysUser
+     * @return
+     */
+    PageResult selectUserPageList(Integer pageNo, Integer pageSize,SysUser sysUser);
 }

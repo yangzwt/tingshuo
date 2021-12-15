@@ -9,7 +9,9 @@ import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysUser;
 import com.tingshuo.system.mapper.SysUserMapper;
+import com.tingshuo.system.param.SysUserPo;
 import com.tingshuo.system.service.ISysUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,26 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public PageResult selectUserList(Integer pageNo, Integer pageSize,SysUser sysUser) {
+        PageHelper.startPage(pageNo,pageSize);
+        List<SysUser> sysUsers = sysUserMapper.selectUserList(sysUser);
+        PageInfo pageInfo = new PageInfo();
+        PageResult pageResult = new PageResult();
+        pageResult.setPageNum(pageNo);
+        pageResult.setPageSize(pageSize);
+        pageResult.setTotalSize(new PageInfo(sysUsers).getTotal());//总数
+        pageResult.setContent(sysUsers);
+        return pageResult;
+    }
+
+    /**
+     * 用户分页查询业务逻辑
+     * @param pageNo
+     * @param pageSize
+     * @param sysUser
+     * @return
+     */
+    @Override
+    public PageResult selectUserPageList(Integer pageNo, Integer pageSize, SysUser sysUser) {
         PageHelper.startPage(pageNo,pageSize);
         List<SysUser> sysUsers = sysUserMapper.selectUserList(sysUser);
         PageInfo pageInfo = new PageInfo();
