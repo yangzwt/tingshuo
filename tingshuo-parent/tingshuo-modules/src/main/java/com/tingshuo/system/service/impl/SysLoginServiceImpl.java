@@ -1,10 +1,15 @@
 package com.tingshuo.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.tingshuo.common.core.exception.BaseException;
+import com.tingshuo.common.core.result.R;
+import com.tingshuo.common.core.utils.StringUtils;
 import com.tingshuo.system.entity.SysLogin;
 import com.tingshuo.system.mapper.SysLoginMapper;
 import com.tingshuo.system.service.ISysLoginService;
+import com.tingshuo.system.service.ISysUserService;
 import com.tingshuo.system.vo.LoginUserVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +22,8 @@ import org.springframework.stereotype.Service;
 @Service("ISysLoginService")
 public class SysLoginServiceImpl extends ServiceImpl<SysLoginMapper,SysLogin> implements ISysLoginService {
 
+    @Autowired
+    private ISysUserService sysUserService;
     /**
      * 用户登录相关业务操作
       * @param username
@@ -25,6 +32,10 @@ public class SysLoginServiceImpl extends ServiceImpl<SysLoginMapper,SysLogin> im
      */
     @Override
     public LoginUserVo login(String username, String password) {
-        return null;
+        if (StringUtils.isEmpty(username)){
+            throw  new BaseException("用户名不能为空");
+        }
+        LoginUserVo userInfo = sysUserService.getUserInfo(username, password);
+        return userInfo;
     }
 }

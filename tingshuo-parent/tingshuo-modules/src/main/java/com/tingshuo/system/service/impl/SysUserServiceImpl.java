@@ -11,6 +11,7 @@ import com.tingshuo.system.entity.SysUser;
 import com.tingshuo.system.mapper.SysUserMapper;
 import com.tingshuo.system.param.SysUserPo;
 import com.tingshuo.system.service.ISysUserService;
+import com.tingshuo.system.vo.LoginUserVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,6 +65,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         pageResult.setTotalSize(new PageInfo(sysUsers).getTotal());//总数
         pageResult.setContent(sysUsers);
         return pageResult;
+    }
+
+    @Override
+    public LoginUserVo getUserInfo(String username, String password) {
+        return sysUserMapper.getUserInfo(username);
     }
 
 

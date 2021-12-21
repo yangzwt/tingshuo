@@ -1,6 +1,7 @@
 package com.tingshuo.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysLogin;
 import com.tingshuo.system.vo.LoginUserVo;
 
@@ -18,5 +19,5 @@ public interface ISysLoginService extends IService<SysLogin> {
      * @param password
      * @return
      */
-    public LoginUserVo login(String username,String password);
+    public LoginUserVo login(String username, String password);
 }

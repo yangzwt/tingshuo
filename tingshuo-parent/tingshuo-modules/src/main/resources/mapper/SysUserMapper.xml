@@ -75,5 +75,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        where 1=1
 	</select>
 
+	<select id="getUserInfo" resultType="com.tingshuo.system.vo.LoginUserVo">
+		SELECT
+			su.user_id  as userid,
+			su.user_name as username,
+		    '' as token
+		FROM
+			sys_user su
+		where 1=1
+			and su.user_name =#{username}
+	</select>
+
 
 </mapper> 

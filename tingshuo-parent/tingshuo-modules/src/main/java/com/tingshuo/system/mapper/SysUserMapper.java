@@ -1,8 +1,11 @@
 package com.tingshuo.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysUser;
+import com.tingshuo.system.vo.LoginUserVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -29,4 +32,11 @@ public interface SysUserMapper  extends BaseMapper<SysUser> {
      * @return SysUser
      */
     SysUser selectUserByUserName(String userName);
+
+    /**
+     * 查看用户基本信息
+     * @param username
+     * @return
+     */
+   LoginUserVo  getUserInfo(@Param("username") String username);
 }

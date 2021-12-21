@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysUser;
+import com.tingshuo.system.vo.LoginUserVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,4 +41,14 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     PageResult selectUserPageList(Integer pageNo, Integer pageSize,SysUser sysUser);
+
+    /**
+     * 根据用户名
+     * 查看单个用户基本信息
+     * @param username
+     * @param password
+     * @return
+     */
+    LoginUserVo getUserInfo(String username,String password);
+
 }

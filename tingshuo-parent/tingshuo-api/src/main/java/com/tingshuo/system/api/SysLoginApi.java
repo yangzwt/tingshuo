@@ -21,5 +21,5 @@ public interface SysLoginApi {
      * @return
      */
     @PostMapping("/login")
-    public R<?> login(@RequestBody SysLoginPo sysLoginPo);
+    R<?> login(@RequestBody SysLoginPo sysLoginPo);
 }
