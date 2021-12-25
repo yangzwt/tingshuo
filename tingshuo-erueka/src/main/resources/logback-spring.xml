@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+
+    <property name="z_app" value="${z_app:-app}"/>
+
+    <property name="SQL_LEVEL" value="DEBUG"/>
+    <property name="SERVICE_LEVEL" value="DEBUG"/>
+    <property name="RPC_LEVEL" value="DEBUG"/>
+    <property name="BOOT_LEVEL" value="DEBUG"/>
+    <property name="BUF_LEVEL" value="DEBUG"/>
+
+    <!-- 09:14:20.256 [main] INFO com.h.db.business.main.Main - asfdasdf -->
+    <!--输出格式
+    %d{HH:mm:ss.SSS} 日期格式
+    %highlight()：颜色，info为蓝色，warn为浅红，error为加粗红，debug为黑色
+    %thread 打印日志的线程
+    %-5level：日志级别
+    %highlight()：颜色，info为蓝色，warn为浅红，error为加粗红，debug为黑色
+    %15.15():如果记录的线程字符长度小于15(第一个)则用空格在左侧补齐,如果字符长度大于15(第二个),则从开头开始截断多余的字符
+    %logger：日志输出的类名
+    %-40.40()：如果记录的logger字符长度小于40(第一个)则用空格在右侧补齐,如果字符长度大于40(第二个),则从开头开始截断多余的字符
+    %cyan：颜色
+    %msg：日志输出内容
+    %n：换行符
+    -->
+    <property name="PATTERN" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <property name="SQL_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}Sql.log"/>
+    <property name="SERVICE_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}Service.log"/>
+    <property name="RPC_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}RPC.log"/>
+    <property name="BOOT_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}Boot.log"/>
+    <property name="BUF_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}Buf.log"/>
+    <property name="TRACE_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}Trace.log"/>
+    <!--appender 是 configuration 的子节点，是负责写日志的组件-->
+    <!--附加器 把日志输出的控制台-->
+    <!--默认情况下，每个日志 事件都会立即刷新到基础输出流、这种默认方法更安全，因为如果应用程序在没有正确关闭appender
+    但是，为了显著增加日志吞吐量，将immediateFalush 属性设置为false
+    -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <property name="ROOT_LEVEL" value="DEBUG"/>
+
+    <property name="APP_LOG_FILE" value="${LOG_HOME}/logs/${z_app}/${z_app}.log"/>
+
+    <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <!--设置日志输出编码-->
+            <charset>utf-8</charset>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+        <prudent>false</prudent>
+        <append>true</append>
+
+        <file>${APP_LOG_FILE}</file>
+        <!--LevelFilter、ThresholdFilter
+        LevelFilter 根据精确的级别匹配过滤事件。
+        如果事件的级别等于配置的级别，则筛选器接受或拒绝该事件，具体取决于onMatch和onMismatch属性的配置。
+        ThresholdFilter:
+        过滤低于指定阈值的事件。
+        对于等于或高于阈值的事件，ThresholdFilter将在调用其decision（）方法时响应NEUTRAL。 但是，将拒绝级别低于阈值的事件
+        -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件的名字会根据fileNamePattern的值，每隔一段时间改变一次-->
+            <!--注意：sizeAndTimeBaseRollingPolicy中 %i 和 %d 令牌都是强制性的，必须存在，要不会报错-->
+            <fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <!--日志保存期限15天-->
+            <maxHistory>15</maxHistory>
+            <!--每个日志文件到200m的时候开始切分，最多保留15天，但最大到200m，哪怕到15天也要删除多余的日志-->
+            <totalSizeCap>200MB</totalSizeCap>
+            <!--这是活动文件的大小，默认为10MB-->
+            <maxFileSize>10MB</maxFileSize>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 打印具体sql，日志打印级别 TRACE，DEBUG，INFO，WARN，ERROR，ALL-->
+    <logger name="SqlLog" level="DEBUG" >
+        <appender-ref ref="APP_LOG" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <!-- 打印事务轨迹 -->
+    <logger name="druid.sql.Connection" level="DEBUG" />
+    <logger name="org.springframework.jdbc.datasource.CoreDataSourceUtils" level="DEBUG" />
+    <logger name="org.springframework.jdbc.datasource.DataSourceUtils" level="DEBUG" />
+    <logger name="org.apache.zookeeper.ClientCnxn" level="info" />
+    <logger name="org.mongodb.driver.connection" level="info" />
+    <logger name="org.mongodb.driver.cluster" level="info" />
+    <logger name="org.apache.zookeeper.Environment" level="ERROR"/>
+    <logger name="org.apache.curator.framework.recipes.cache.TreeCache" level="debug"/>
+    <logger name="tk.mybatis.mapper.mapperhelper.MapperTemplate" level="DEBUG"/>
+<!--最多一个root ，设置console 日志。-->
+    <root level="${ROOT_LEVEL}">
+        <appender-ref ref="APP_LOG" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
