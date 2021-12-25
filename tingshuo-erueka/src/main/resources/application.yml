@@ -1,0 +1,24 @@
+spring:
+# 使用安全认证
+  security:
+    basic:
+    enabled: true
+    user:
+      name: tingshuo
+      password: tingshuo123yz
+server:
+  port: 8761
+#注册中心的唯一端口
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://tingshuo:tingshuo123yz@${eureka.instance.hostname}:${server.port}/eureka
+    #声明自己是个服务端
+    register-with-eureka: false
+
+#日志打印文件目录
+logging:
+  file:
+    path: logback-spring.xml
