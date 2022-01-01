@@ -15,9 +15,6 @@
         <module>tingshuo-activity</module>
         <!--听说项目-对外接口服务-->
         <module>tingshuo-api</module>
-
-
-
         <!--听说项目-服务网关-->
         <module>tingshuo-gateway</module>
         <!--听说项目-定时任务-->

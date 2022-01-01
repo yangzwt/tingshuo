@@ -1,12 +1,12 @@
 package com.tingshuo.system.entity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.tingshuo.common.core.annotation.Excel;
 import com.tingshuo.common.core.web.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
@@ -16,8 +16,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * 
  * @author yangz
  */
-public class SysRole extends BaseEntity
-{
+public class SysRole extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /** 角色ID */
@@ -207,6 +206,7 @@ public class SysRole extends BaseEntity
         this.deptIds = deptIds;
     }
     
+    @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("roleId", getRoleId())

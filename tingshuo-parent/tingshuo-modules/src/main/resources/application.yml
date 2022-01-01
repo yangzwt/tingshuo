@@ -3,6 +3,3 @@ spring:
     active: test
   server:
     port: 8080
-
-
-
