@@ -2,10 +2,7 @@ package com.tingshuo.system.api;
 
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.param.SysRolePo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 类文件描述:
@@ -14,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0.0
  * @date 2022年01月01日 21:36
  **/
-@RestController("/role")
+
+@RequestMapping("/role")
 public interface SysRoleApi {
 
     @PostMapping("/list")

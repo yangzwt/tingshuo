@@ -2,12 +2,9 @@ package com.tingshuo.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.tingshuo.common.core.result.PageResult;
-import com.tingshuo.common.core.result.R;
 import com.tingshuo.system.entity.SysUser;
 import com.tingshuo.system.vo.LoginUserVo;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 /**
  * @ClassName ISysUserService

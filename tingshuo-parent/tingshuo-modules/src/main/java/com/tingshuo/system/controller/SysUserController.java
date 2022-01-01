@@ -1,10 +1,5 @@
 package com.tingshuo.system.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.common.core.result.R;
 import com.tingshuo.common.core.utils.StringUtils;
@@ -24,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2021-08-15 21:01
  */
 @RestController
-@RequestMapping("/user")
 public class SysUserController implements SysUserApi {
     @Autowired
     private  ISysUserService sysUserService;

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0.0
  * @date 2021年12月15日 19:50
  **/
-@RestController("/user")
+
+@RequestMapping("/user")
 public interface SysUserApi {
     /**
      * 用户查询列表

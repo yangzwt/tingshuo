@@ -7,7 +7,6 @@ import com.tingshuo.system.param.SysRolePo;
 import com.tingshuo.system.service.ISysRoleService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022年01月01日 21:41
  **/
 @RestController
-@RequestMapping("/role")
 public class SysRoleController implements SysRoleApi {
     @Autowired
     private ISysRoleService sysRoleService;
