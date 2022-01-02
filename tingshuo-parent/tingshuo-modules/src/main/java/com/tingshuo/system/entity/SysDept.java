@@ -1,14 +1,14 @@
 package com.tingshuo.system.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.tingshuo.common.core.web.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -16,8 +16,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * 
  * @author yangz
  */
-public class SysDept extends BaseEntity
-{
+public class SysDept extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /** 部门ID */
