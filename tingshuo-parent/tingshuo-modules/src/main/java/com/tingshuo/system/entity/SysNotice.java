@@ -1,17 +1,17 @@
 package com.tingshuo.system.entity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.tingshuo.common.core.web.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 /**
  * 通知公告表 sys_notice
  * 
- * @author ruoyi
+ * @author yangz
  */
 public class SysNotice extends BaseEntity
 {
