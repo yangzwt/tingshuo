@@ -42,4 +42,4 @@
 #####优化内容
 1. Api接口不用写@RestController，改为@RequestMapping("/")即可，业务实现类只需要写@RestController("/"),即可，减少代码冗余并美观。
 
-2.  
+2.  优化：访问日志查询优化

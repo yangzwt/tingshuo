@@ -26,7 +26,7 @@ public class SysLoginInfoServiceImpl extends ServiceImpl<SysLoginInfoMapper, Sys
     @Override
     public PageResult list(Integer pageNo, Integer pageSize, SysLoginInfo sysLoginInfo) {
         PageHelper.startPage(pageNo,pageSize);
-        List<SysLoginInfo> sysLoginInfos = sysLoginInfoMapper.selectLoginInfoList(sysLoginInfo);
+        List<SysLoginInfo> sysLoginInfos = sysLoginInfoMapper.selectList(sysLoginInfo);
         PageResult pageResult = new PageResult();
         pageResult.setPageNum(pageNo);
         pageResult.setPageSize(pageSize);

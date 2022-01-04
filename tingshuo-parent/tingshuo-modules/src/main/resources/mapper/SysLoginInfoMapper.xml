@@ -18,7 +18,7 @@
 		values (#{userName}, #{status}, #{ipaddr}, #{msg}, sysdate())
 	</insert>-->
 
-	<select id="selectLogininfoList" parameterType="com.tingshuo.system.entity.SysLoginInfo" resultMap="SysLogininforResult">
+	<select id="selectList" parameterType="com.tingshuo.system.entity.SysLoginInfo" resultMap="SysLogininforResult">
 		select info_id, user_name, ipaddr, status, msg, access_time from sys_logininfor
 		<where>
 			<if test="ipaddr != null and ipaddr != ''">
