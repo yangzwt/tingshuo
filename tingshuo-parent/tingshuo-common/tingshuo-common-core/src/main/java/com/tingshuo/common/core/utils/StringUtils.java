@@ -1,18 +1,18 @@
 package com.tingshuo.common.core.utils;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import com.tingshuo.common.core.constant.Constants;
 import com.tingshuo.common.core.text.StrFormatter;
 import org.springframework.util.AntPathMatcher;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 
 /**
  * 字符串工具类
  * 
- * @author ruoyi
+ * @author yangz
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils
 {

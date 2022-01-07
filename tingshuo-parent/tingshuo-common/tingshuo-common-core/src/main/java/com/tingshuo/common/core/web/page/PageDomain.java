@@ -5,7 +5,7 @@ import com.tingshuo.common.core.utils.StringUtils;
 /**
  * 分页数据
  * 
- * @author ruoyi
+ * @author yangz
  */
 public class PageDomain
 {

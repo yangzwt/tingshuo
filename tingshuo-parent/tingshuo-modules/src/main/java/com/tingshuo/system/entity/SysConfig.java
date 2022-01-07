@@ -1,19 +1,19 @@
 package com.tingshuo.system.entity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import com.tingshuo.common.core.annotation.Excel;
 import com.tingshuo.common.core.web.entity.BaseEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
 /**
  * 参数配置表 sys_config
  * 
- * @author ruoyi
+ * @author yangz
  */
 public class SysConfig extends BaseEntity
 {
