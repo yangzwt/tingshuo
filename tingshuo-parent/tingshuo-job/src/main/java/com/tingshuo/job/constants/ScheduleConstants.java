@@ -8,10 +8,10 @@ package com.tingshuo.job.constants;
  * @date 2022年01月07日 20:55
  **/
 public class ScheduleConstants {
-    public static final String TASK_CLASS_NAME = "TASK_CLASS_NAME";
+    public static final String TASK_CLASS_NAME = "ryTask";
 
     /** 执行目标key */
-    public static final String TASK_PROPERTIES = "TASK_PROPERTIES";
+    public static final String TASK_PROPERTIES = "ryTask.ryNoParams";
 
     /** 默认 */
     public static final String MISFIRE_DEFAULT = "0";

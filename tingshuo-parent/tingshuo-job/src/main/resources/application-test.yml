@@ -1,0 +1,40 @@
+server:
+  port: 8080
+#spring连接源
+spring:
+  application:
+    name: tingshuo-Job
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pg_tingshuo
+    username: postgres
+    password: postgresql
+    driver-class-name: org.postgresql.Driver
+#注册中心相关配置
+eureka:
+  instance:
+    # 应用实例主机名
+    hostname: tingshuoJob
+    # 客户端在注册时使用自己的IP而不是主机名，缺省：false
+    prefer-ip-address: true
+  client:
+    service-url:
+      # Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://tingshuo:tingshuo123yz@127.0.0.1:8761/eureka
+    instance:
+      #模块之间跨域访问
+      prefer-ip-address: true
+    #false #是否将自己注册到Eureka服务中
+    register-with-eureka: true
+    #false #是否从Eureka中获取注册信息
+    fetch-registry: true
+#mybatis-plus设置
+mybatis-plus:
+    mapper-locations: classpath:mapper/*Mapper.xml
+    configuration:
+      # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      # 返回类型为Map,显示null对应的字段
+      call-setters-on-nulls: true
+
+
+

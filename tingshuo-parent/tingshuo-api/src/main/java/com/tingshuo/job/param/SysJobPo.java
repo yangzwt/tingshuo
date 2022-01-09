@@ -1,29 +1,19 @@
-package com.tingshuo.job.entity;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.tingshuo.common.core.web.entity.BaseEntity;
+package com.tingshuo.job.param;
 
 import java.util.Date;
 
 /**
  * 类文件描述:
- * 定时任务类
+ *
  * @author yangz
  * @version 1.0.0
- * @date 2022年01月06日 21:29
+ * @date 2022年01月08日 16:56
  **/
-public class SysJob extends BaseEntity {
-    private static final long serialVersionUID = 1L;
-
-
+public class SysJobPo {
     /**
-     * job_id
-     * 任务ID
+     * 任务id
      */
-    @TableId(type = IdType.AUTO)
     private Long jobId;
-
     /**
      * job_name
      * 任务名称
@@ -96,8 +86,6 @@ public class SysJob extends BaseEntity {
      */
     private String remark;
 
-    public SysJob() {}
-
     public Long getJobId() {
         return jobId;
     }
@@ -162,52 +150,42 @@ public class SysJob extends BaseEntity {
         this.status = status;
     }
 
-    @Override
     public String getCreateBy() {
         return createBy;
     }
 
-    @Override
     public void setCreateBy(String createBy) {
         this.createBy = createBy;
     }
 
-    @Override
     public Date getCreateTime() {
         return createTime;
     }
 
-    @Override
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    @Override
     public String getUpdateBy() {
         return updateBy;
     }
 
-    @Override
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 
-    @Override
     public Date getUpdateTime() {
         return updateTime;
     }
 
-    @Override
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
-    @Override
     public String getRemark() {
         return remark;
     }
 
-    @Override
     public void setRemark(String remark) {
         this.remark = remark;
     }

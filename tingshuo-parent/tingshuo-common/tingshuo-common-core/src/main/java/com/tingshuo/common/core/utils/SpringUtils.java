@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * 类文件描述:
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
  * @version 1.0.0
  * @date 2022年01月07日 21:12
  **/
+@Component
 public class SpringUtils implements BeanFactoryPostProcessor
 {
     /** Spring应用上下文环境 */

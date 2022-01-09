@@ -36,17 +36,13 @@ public abstract class AbstractQuartzJob implements Job {
     {
         SysJob sysJob = new SysJob();
         BeanUtils.copyBeanProp(sysJob, context.getMergedJobDataMap().get(ScheduleConstants.TASK_PROPERTIES));
-        try
-        {
+        try {
             before(context, sysJob);
-            if (sysJob != null)
-            {
+            if (sysJob != null) {
                 doExecute(context, sysJob);
             }
             after(context, sysJob, null);
-        }
-        catch (Exception e)
-        {
+        }catch (Exception e){
             log.error("任务执行异常  - ：", e);
             after(context, sysJob, e);
         }
@@ -69,8 +65,7 @@ public abstract class AbstractQuartzJob implements Job {
      * @param context 工作执行上下文对象
      * @param sysJob 系统计划任务
      */
-    protected void after(JobExecutionContext context, SysJob sysJob, Exception e)
-    {
+    protected void after(JobExecutionContext context, SysJob sysJob, Exception e){
         Date startTime = threadLocal.get();
         threadLocal.remove();
 
@@ -82,14 +77,11 @@ public abstract class AbstractQuartzJob implements Job {
         sysJobLog.setStopTime(new Date());
         long runMs = sysJobLog.getStopTime().getTime() - sysJobLog.getStartTime().getTime();
         sysJobLog.setJobMessage(sysJobLog.getJobName() + " 总共耗时：" + runMs + "毫秒");
-        if (e != null)
-        {
+        if (e != null){
             sysJobLog.setStatus("1");
             String errorMsg = StringUtils.substring(ExceptionUtil.getExceptionMessage(e), 0, 2000);
             sysJobLog.setExceptionInfo(errorMsg);
-        }
-        else
-        {
+        }else{
             sysJobLog.setStatus("0");
         }
 
