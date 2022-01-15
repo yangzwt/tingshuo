@@ -14,6 +14,8 @@
 
     <modules>
         <module>tingshuo-common-core</module>
+        <!--安全模块认证-->
+        <module>tingshuo-common-security</module>
     </modules>
     <properties>
         <!--指定mybatis版本对应-->

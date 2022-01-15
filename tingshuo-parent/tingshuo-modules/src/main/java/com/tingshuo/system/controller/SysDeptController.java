@@ -5,6 +5,8 @@ import com.tingshuo.system.api.SysDeptApi;
 import com.tingshuo.system.entity.SysDept;
 import com.tingshuo.system.param.SysDeptPo;
 import com.tingshuo.system.service.ISysDeptService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class SysDeptController implements SysDeptApi {
+    private Logger logger = LoggerFactory.getLogger(SysDeptController.class);
     @Autowired
     private ISysDeptService sysDeptService;
     /**
@@ -32,6 +35,7 @@ public class SysDeptController implements SysDeptApi {
     public PageResult list(Integer pageNo, Integer pageSize, SysDeptPo sysDeptPo) {
         SysDept sysDept=new SysDept();
         BeanUtils.copyProperties(sysDeptPo,sysDept);//对象拷贝
+        logger.info("使用日志打印。并进行日志链路追踪sleuth");
         return sysDeptService.list(pageNo,pageSize,sysDept);
     }
 }

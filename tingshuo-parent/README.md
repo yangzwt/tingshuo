@@ -48,3 +48,40 @@
 # 14.完成定时任务
 1. 使用org.quartz-scheduler定时任务：支持页面修改和启动，初版完成。
 2. 完成定时任务开发，支持数据输入。
+# 15.认证授权使用spring-security
+
+# 16.使用sleuth + zipkin 进行日志记录(链路追踪)
+**1.**使用sleuth 进行收集日志，并将日志进行打印
+
+**2.**需要在服务端，进行pom.xml文件引入和application.yml配置相关依赖即可
+# 进行日志采集
+	spring:
+		sleuth:
+			sampler:
+        		probability: 1.0 #日志采用级别1.0 表示全部采集
+    	zipkin:
+        	base-url: http://localhost:9411 # 指定zipkin服务器的地址和端口号
+			sender:
+				type: web ## 设置用http方式传输数据
+## 注意日志讲解
+	INFO [tingshuo-test,e7a55e23964bdac3,e7a55e23964bdac3,true] 22824 --- [nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+
+### tingshuo-test : 微服务名称
+### e7a55e23964bdac3 -表示tranceld 一条链路中只要一个Tranceld
+### e7a55e23964bdac3 -表示spanid
+### true -表示 将信息输出到zipkin上面进行页面展示，默认为false 是否将数据输出到其他服务中。
+### 22824 -表示唯一线程id
+**3**.设置用http方式传输数据
+## 改为postgresql 
+###配置文件: 
+    zipkin-server-shared.yml
+zipkin默认支持mysql
+## 修改为
+    postgresql:
+		host: ${PG_HOST:localhost}
+		port: ${PG_TCP_PORT:3306}
+		username: ${PG_USER:}
+		password: ${PG_PASS:}
+		db: ${PG_DB:zipkin}
+		max-active: ${PG_MAX_CONNECTIONS:10}
+		use-ssl: ${PG_USE_SSL:false}

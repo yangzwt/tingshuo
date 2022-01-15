@@ -40,6 +40,16 @@
            <artifactId>spring-boot-starter-test</artifactId>
            <scope>test</scope>
        </dependency>
+       <!-- spring cloud sleuth 依赖 -->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-sleuth</artifactId>
+       </dependency>
+       <!--zipkin追踪-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-zipkin</artifactId>
+       </dependency>
 
    </dependencies>
     <build>
