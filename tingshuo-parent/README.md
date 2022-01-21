@@ -71,7 +71,7 @@
 ### e7a55e23964bdac3 -表示spanid
 ### true -表示 将信息输出到zipkin上面进行页面展示，默认为false 是否将数据输出到其他服务中。
 ### 22824 -表示唯一线程id
-**3**.设置用http方式传输数据
+**3.**设置用http方式传输数据
 ## 改为postgresql 
 ###配置文件: 
     zipkin-server-shared.yml
@@ -85,3 +85,35 @@ zipkin默认支持mysql
 		db: ${PG_DB:zipkin}
 		max-active: ${PG_MAX_CONNECTIONS:10}
 		use-ssl: ${PG_USE_SSL:false}
+#17.使用ribbon进行负载均衡
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    </dependency>
+#注意：
+##1.负载使用的是客户端调用其他服务时配置bean
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate rebbionRestTemplate(){
+        return new RestTemplate();
+    }
+##2.调用服务注意事项
+
+    ##tingshuo-activity 是注册中心服务名称
+    @Autowired
+    RestTemplate restTemplate;
+
+    @RequestMapping(value = "/helloTest",method = RequestMethod.GET)
+    public String helloTest(){
+        return restTemplate.getForObject("http://tingshuo-activity/hello",String.class);
+    }
+##3.application.yml配置详情
+    #代表注册中心上服务的名字
+    tingshuo-activity:
+        #使用ribbon 负载均衡
+        ribbon:
+            #配置随机策略
+            NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+            #服务地址
+            listOfServers: http://192.168.31.215:8888,http://192.168.31.215:9999

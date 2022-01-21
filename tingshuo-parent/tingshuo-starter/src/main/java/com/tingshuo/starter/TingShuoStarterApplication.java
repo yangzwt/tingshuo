@@ -1,4 +1,4 @@
-package com.tingshuo.system;
+package com.tingshuo.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,10 +15,9 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class TingShuoSystemApplication {
+public class TingShuoStarterApplication {
     /**
      * 实例化ribbon使用的RestTemplate
-     * 注人spring管理
      * @return
      */
     @Bean
@@ -28,6 +27,6 @@ public class TingShuoSystemApplication {
     }
     public static void main(String[] args) {
 
-        SpringApplication.run(TingShuoSystemApplication.class,args);
+        SpringApplication.run(TingShuoStarterApplication.class,args);
     }
 }
