@@ -62,7 +62,18 @@ logging:
 feign:
   hystrix:
     enabled: true
-
+#开启监控页面
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "192.168.31.215"
+#开启监控服务中心列表，表明监控哪些服务
+turbine:
+  app-config: tingshuo-activity,tingshuo-test
+  #聚合哪些集群，默认为default，多个,隔开
+  aggregator:
+    cluster-config: default
+  # 集群名称，默认为应用名
+  cluster-name-expression: new String("default")
 
 
 

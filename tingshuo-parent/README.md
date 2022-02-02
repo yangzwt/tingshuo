@@ -147,3 +147,58 @@ zipkin默认支持mysql
     //继承调用服务的接口方法，实现
     @Component
     public class ProductClientHystrix implements ProductClient
+###5.使用hystrix Dashboard 实现数据的可视化监控(单个地址监控)
+    注意事项
+    1.pom.xml新增
+     <!--hystrix的监控依赖-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+       </dependency>
+       <!--hystrix-dashboard服务监控-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+       </dependency>
+    2.启动类信息
+    @EnableHystrixDashboard
+    @EnableCircuitBreaker
+    特别注意boot2.0以上，手动声明bean
+    @Bean
+    public ServletRegistrationBean getServlet(){
+        HystrixMetricsStreamServlet hystrixMetricsStreamServlet  =new HystrixMetricsStreamServlet();
+        ServletRegistrationBean servletRegistrationBean= new ServletRegistrationBean(hystrixMetricsStreamServlet);
+        servletRegistrationBean.setLoadOnStartup(1);
+        servletRegistrationBean.addUrlMappings("/actuator/hystrix.stream");
+        servletRegistrationBean.setName("HystrixMetricsStreamServlet");
+        return servletRegistrationBean;
+    }
+    3.配置文件新增
+    #开启监控页面
+    hystrix:
+        dashboard:
+            #监控的服务器ip
+            proxy-stream-allow-list: "192.168.31.215"
+    4.使用方法地址
+    http://ip+port/hystrix
+    输入
+    http://ip+port/actuator/hystrix.stream即可
+###6.使用turbine聚合监控数据(监控多个服务地址)
+    1.pom.xml引入
+    <!--使用turbine聚合监控数据-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-netflix-turbine</artifactId>
+       </dependency>
+    2.启动类新增
+    @EnableTurbine
+    3.配置文件
+    #开启监控服务中心列表，表明监控哪些服务
+    turbine:
+        app-config: tingshuo-activity,tingshuo-test
+        #聚合哪些集群，默认为default，多个,隔开
+        aggregator:
+            cluster-config: default
+        # 集群名称，默认为应用名
+        cluster-name-expression: new String("default")
+    4.使用方式和上面一致

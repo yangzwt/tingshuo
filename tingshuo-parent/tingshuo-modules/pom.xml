@@ -60,6 +60,26 @@
            <groupId>org.springframework.cloud</groupId>
            <artifactId>spring-cloud-starter-openfeign</artifactId>
        </dependency>
+       <!--hystrix的监控依赖-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+       </dependency>
+       <!--hystrix-dashboard服务监控-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+       </dependency>
+       <!--actuator监控-->
+       <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-actuator</artifactId>
+       </dependency>
+       <!--使用turbine聚合监控数据-->
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-netflix-turbine</artifactId>
+       </dependency>
 
    </dependencies>
     <build>
