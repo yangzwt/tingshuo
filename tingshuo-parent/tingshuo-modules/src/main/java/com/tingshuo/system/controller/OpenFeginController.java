@@ -1,6 +1,8 @@
 package com.tingshuo.system.controller;
 
 import com.tingshuo.system.fegin.ProductClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,13 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class OpenFeginController {
+    private Logger logger = LoggerFactory.getLogger(OpenFeginController.class);
     @Autowired
     private ProductClient productClient;
     @GetMapping("/getString")
     public String modulesOpenFeign(){
         //声明使用openfeign进行接口调用
         String product = productClient.product();
-        System.out.println(product+"555555555555");
+        logger.info("服务方返回数据="+product);
         return product;
     }
 

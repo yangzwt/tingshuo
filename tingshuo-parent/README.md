@@ -136,3 +136,14 @@ zipkin默认支持mysql
         @GetMapping("/getString")
         String product();
     }
+###4.新增hystrix进行服务熔断保护
+    配置文件新增
+    #开启熔断hystix支持
+    feign:
+        hystrix:
+            enabled: true
+    #调用其他服务接口的地方，新增fallback=容错的类
+    @FeignClient(value = "注册中心的其他服务名",fallback = ProductClientHystrix.class)
+    //继承调用服务的接口方法，实现
+    @Component
+    public class ProductClientHystrix implements ProductClient
