@@ -117,3 +117,22 @@ zipkin默认支持mysql
             NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
             #服务地址
             listOfServers: http://192.168.31.215:8888,http://192.168.31.215:9999
+#18.使用openfeign 远程调用
+##注意
+###1.使用时客户端，在入口新增
+    @EnableFeignClients
+    表示开启openfeign进行远程调用
+###2.在pom引入
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+###3.引入接口调用方法：
+    例如：
+    //声明调用注册中心的服务端的id
+    @FeignClient("tingshuo-activity")
+    public interface ProductClient {
+        //调用服务端的业务方法，请求参数要和服务端保持一致
+        @GetMapping("/getString")
+        String product();
+    }
