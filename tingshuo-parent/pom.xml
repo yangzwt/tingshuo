@@ -25,8 +25,7 @@
         <module>tingshuo-modules</module>
         <!--听说项目-依赖工具包-->
         <module>tingshuo-common</module>
-
-
+        <module>tingshuo-config</module>
     </modules>
     <properties>
         <!--项目依赖文件-->

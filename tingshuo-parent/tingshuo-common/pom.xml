@@ -47,11 +47,11 @@
             <artifactId>orai18n</artifactId>
             <version>12.1.0.2.0</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc8</artifactId>
             <version>12.2.0.1.0</version>
-        </dependency>
+        </dependency>-->
         <!--pg数据库驱动-->
         <dependency>
             <groupId>org.postgresql</groupId>

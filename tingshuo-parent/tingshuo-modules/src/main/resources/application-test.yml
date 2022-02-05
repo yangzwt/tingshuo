@@ -3,7 +3,7 @@ server:
 #spring连接源
 spring:
   application:
-    name: tingshuo-test
+    name: tingshuo-modules
   datasource:
     url: jdbc:postgresql://localhost:5432/pg_tingshuo
     username: postgres

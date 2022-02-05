@@ -1,0 +1,41 @@
+server:
+  port: 8088
+#spring连接源
+spring:
+  application:
+    name: tingshuo-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yangzwt/tingshuo-config
+          username:
+          password:
+          default-label: master
+#注册中心相关配置
+eureka:
+  instance:
+    # 应用实例主机名
+    #hostname: eurekaClient
+    # 客户端在注册时使用自己的IP而不是主机名，缺省：false
+    prefer-ip-address: false
+    ip-address: 127.0.0.1
+  client:
+    service-url:
+      # Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://tingshuo:tingshuo123yz@192.168.31.215:8761/eureka
+    instance:
+      #模块之间跨域访问
+      prefer-ip-address: true
+    #false #是否将自己注册到Eureka服务中
+    register-with-eureka: true
+    #false #是否从Eureka中获取注册信息
+    fetch-registry: true
+# 设置日志打印记录
+logging:
+  level:
+    org.springframework.cloud.sleuth: info
+
+
+
+

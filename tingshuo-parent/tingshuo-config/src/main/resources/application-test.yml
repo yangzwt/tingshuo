@@ -1,0 +1,10 @@
+server:
+  port: 8088
+# 设置日志打印记录
+logging:
+  level:
+    org.springframework.cloud.sleuth: info
+
+
+
+
