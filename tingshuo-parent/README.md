@@ -202,3 +202,36 @@ zipkin默认支持mysql
         # 集群名称，默认为应用名
         cluster-name-expression: new String("default")
     4.使用方式和上面一致
+#19.使用config配置中心
+#20.使用Apollo配置中心，支持动态实时更新
+##1.配置文件使用
+    #app
+    app:
+        id: app001
+        #Apollo配置中心配置
+    apollo:
+        #将服务信息，缓存到本地目录
+        cache-dir: I:/app/
+        #指定使用那个集群
+        cluster: default
+        #连接服务器的地址信息 即注册中心地址
+        meta: http://localhost:8080
+        #是否开启 spring参数自动更新
+        autoUpdateInjectedSpringProperties: true
+            bootstrap:
+            #是否开启apollo
+                enabled: true
+            #设置namespace
+                namespaces: application
+                eagerLoad:
+            #将Apollo 加载提到初始化日志系统之前
+                    enabled: true
+##2.pom.xml
+    <!--Apollo配置中心配置-->
+       <dependency>
+           <groupId>com.ctrip.framework.apollo</groupId>
+           <artifactId>apollo-client</artifactId>
+           <version>1.9.2</version>
+       </dependency>
+##3.启动类新增支持
+    @EnableApolloConfig
