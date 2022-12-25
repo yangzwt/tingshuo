@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9080
 #spring连接源
 spring:
   application:
@@ -15,13 +15,9 @@ spring:
       #日志采用级别1.0 表示全部采集
       probability: 1.0
   zipkin:
-    base-url: http://192.168.1.8:9411
+    base-url: http://192.168.31.215:9411
     sender:
       type: web
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    timeout: 5000
 #使用注册中心的名字即可
 tingshuo-activity:
   #使用ribbon 负载均衡
@@ -29,7 +25,7 @@ tingshuo-activity:
     #配置随机策略
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
     #服务地址
-    listOfServers: http://192.168.1.7:8888,http://192.168.1.7:9999
+    listOfServers: http://192.168.31.215:8888,http://192.168.31.215:9999
 
 #注册中心相关配置
 eureka:
@@ -42,7 +38,7 @@ eureka:
   client:
     service-url:
       # Eureka客户端与Eureka服务端进行交互的地址
-      defaultZone: http://tingshuo:tingshuo123yz@192.168.1.8:8761/eureka
+      defaultZone: http://tingshuo:tingshuo123yz@192.168.31.215:8761/eureka
     instance:
       #模块之间跨域访问
       prefer-ip-address: true
@@ -69,7 +65,7 @@ feign:
 #开启监控页面
 hystrix:
   dashboard:
-    proxy-stream-allow-list: "192.168.1.8"
+    proxy-stream-allow-list: "192.168.31.215"
 #开启监控服务中心列表，表明监控哪些服务
 turbine:
   app-config: tingshuo-activity,tingshuo-test
@@ -79,7 +75,26 @@ turbine:
   # 集群名称，默认为应用名
   cluster-name-expression: new String("default")
 
+#app
+app:
+  id: app001
+#Apollo配置中心配置
+apollo:
+  #将服务信息，缓存到本地目录
+  cache-dir: I:/app/data/
+  #指定使用那个集群
+  cluster: default
+  #连接服务器的地址信息 即注册中心地址
+  meta: http://localhost:8080
+  #是否开启 spring参数自动更新
+  autoUpdateInjectedSpringProperties: true
+  bootstrap:
+    #是否开启apollo
+    enabled: true
+    #设置namespace
+    namespaces: application
+    eagerLoad:
+      #将Apollo 加载提到初始化日志系统之前
+      enabled: true
+test: 1000
 
-
-tingshuo:
-  url: "/api/login,/api/user,/api/test,/api/**"
