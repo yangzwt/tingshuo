@@ -1,7 +1,7 @@
 package com.tingshuo.system.api;
 
 import com.tingshuo.common.core.result.PageResult;
-import com.tingshuo.system.param.SysConfigPo;
+import com.tingshuo.system.vo.SysConfigVO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +26,5 @@ public interface SysConfigApi {
     @PostMapping("/list")
     PageResult list(@RequestBody @RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
                     @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
-                    SysConfigPo sysConfigPo);
+                    SysConfigVO sysConfigVO);
 }

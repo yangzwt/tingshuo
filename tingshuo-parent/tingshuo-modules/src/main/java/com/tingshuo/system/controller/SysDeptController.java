@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysDeptApi;
 import com.tingshuo.system.entity.SysDept;
-import com.tingshuo.system.param.SysDeptPo;
+import com.tingshuo.system.vo.SysDeptVO;
 import com.tingshuo.system.service.ISysDeptService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +32,7 @@ public class SysDeptController implements SysDeptApi {
      */
 
     @Override
-    public PageResult list(Integer pageNo, Integer pageSize, SysDeptPo sysDeptPo) {
+    public PageResult list(Integer pageNo, Integer pageSize, SysDeptVO sysDeptPo) {
         SysDept sysDept=new SysDept();
         BeanUtils.copyProperties(sysDeptPo,sysDept);//对象拷贝
         logger.info("使用日志打印。并进行日志链路追踪sleuth");

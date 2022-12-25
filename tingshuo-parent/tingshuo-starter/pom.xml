@@ -26,6 +26,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
+        <!--连接非关系数据库redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.3.11.RELEASE</version>
+        </dependency>
     </dependencies>
     <build>
         <!--项目打包-->

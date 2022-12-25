@@ -56,7 +56,7 @@ public class LoginUser implements Serializable
     /**
      * 用户信息
      */
-    private SysUser sysUser;
+    private SysUserPo sysUserPo;
 
     public String getToken()
     {
@@ -138,13 +138,11 @@ public class LoginUser implements Serializable
         this.roles = roles;
     }
 
-    public SysUser getSysUser()
-    {
-        return sysUser;
+    public SysUserPo getSysUserPo() {
+        return sysUserPo;
     }
 
-    public void setSysUser(SysUser sysUser)
-    {
-        this.sysUser = sysUser;
+    public void setSysUserPo(SysUserPo sysUserPo) {
+        this.sysUserPo = sysUserPo;
     }
 }

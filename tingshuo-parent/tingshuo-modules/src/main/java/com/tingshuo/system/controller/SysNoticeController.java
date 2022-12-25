@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysNoticeApi;
 import com.tingshuo.system.entity.SysNotice;
-import com.tingshuo.system.param.SysNoticePo;
+import com.tingshuo.system.vo.SysNoticeVO;
 import com.tingshuo.system.service.ISysNoticeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class SysNoticeController implements SysNoticeApi {
     @Autowired
     private ISysNoticeService sysNoticeService;
     @Override
-    public PageResult list(Integer pageNo, Integer pageSize, SysNoticePo sysNoticePo) {
+    public PageResult list(Integer pageNo, Integer pageSize, SysNoticeVO sysNoticePo) {
         SysNotice sysNotice =new SysNotice();
         BeanUtils.copyProperties(sysNoticePo, sysNotice);//对象拷贝
         return sysNoticeService.list(pageNo,pageSize,sysNotice);

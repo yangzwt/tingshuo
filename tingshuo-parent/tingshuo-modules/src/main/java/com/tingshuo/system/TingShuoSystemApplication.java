@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 听说微服务，基础业务项目入口模块
- *@EnableEurekaClient 将当前项目注册到注册中心
+ * @EnableEurekaClient 将当前项目注册到注册中心
  * @EnableFeignClients 声明使用 feign进行服务调用
  * @EnableHystrixDashboard 开启服务监控
  * @EnableCircuitBreaker 监控Servlet
@@ -55,7 +55,6 @@ public class TingShuoSystemApplication {
         return servletRegistrationBean;
     }
     public static void main(String[] args) {
-
         SpringApplication.run(TingShuoSystemApplication.class,args);
     }
 }

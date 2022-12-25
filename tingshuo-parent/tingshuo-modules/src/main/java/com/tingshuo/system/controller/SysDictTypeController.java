@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysDictTypeApi;
 import com.tingshuo.system.entity.SysDictType;
-import com.tingshuo.system.param.SysDictTypePo;
+import com.tingshuo.system.vo.SysDictTypeVO;
 import com.tingshuo.system.service.ISysDictTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class SysDictTypeController implements SysDictTypeApi {
      * @return
      */
     @Override
-    public PageResult list(Integer pageNo, Integer pageSize, SysDictTypePo sysDictTypePo) {
+    public PageResult list(Integer pageNo, Integer pageSize, SysDictTypeVO sysDictTypePo) {
         SysDictType sysDictType =new SysDictType();
         BeanUtils.copyProperties(sysDictTypePo,sysDictType);//对象拷贝
         return sysDictTypeService.list(pageNo,pageSize,sysDictType);

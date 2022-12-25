@@ -9,7 +9,16 @@ spring:
     username: postgres
     password: postgresql
     driver-class-name: org.postgresql.Driver
-    # 进行日志采集
+  redis:
+    port: 6379
+    host: http://127.0.0.1
+    jedis:
+      pool:
+        #表示最大连接支持多少：默认0表示无限制
+        max-active: 8
+    #连接超时时间单位：毫秒
+    timeout: 5000
+  # 进行日志采集
   sleuth:
     sampler:
       #日志采用级别1.0 表示全部采集
