@@ -1,14 +1,11 @@
 package com.tingshuo.system.test;
 
-import com.tingshuo.system.entity.SysUser;
+import com.tingshuo.system.entity.SysUserPo;
 import com.tingshuo.system.mapper.SysUserMapper;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class SysUserTest {
 
     @Test
     public void test(){
-        List<SysUser> sysUsers = sysUserMapper.selectList(null);
+        List<SysUserPo> sysUsers = sysUserMapper.selectList(null);
         Assert.assertEquals(2,sysUsers.size());
         sysUsers.forEach(System.out::println);
         System.out.printf("123456");

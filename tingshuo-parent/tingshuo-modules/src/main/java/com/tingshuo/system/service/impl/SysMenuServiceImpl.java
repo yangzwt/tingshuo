@@ -2,7 +2,7 @@ package com.tingshuo.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tingshuo.system.entity.SysMenu;
-import com.tingshuo.system.entity.SysUser;
+import com.tingshuo.system.entity.SysUserPo;
 import com.tingshuo.system.mapper.SysMenuMapper;
 import com.tingshuo.system.service.ISysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +29,9 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @return
      */
     @Override
-    public List<SysMenu> selectMenuList(Long userId, SysMenu sysMenu) {
+    public List<SysMenu> selectMenuList(String userId, SysMenu sysMenu) {
         List<SysMenu> sysMenus=null;
-        if (SysUser.isAdmin(userId)){
+        if (SysUserPo.isAdmin(userId)){
             //特殊处理系统管理员查询全部菜单
             sysMenus = sysMenuMapper.selectMenuList(sysMenu);
         }else {

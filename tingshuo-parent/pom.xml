@@ -25,7 +25,9 @@
         <module>tingshuo-modules</module>
         <!--听说项目-依赖工具包-->
         <module>tingshuo-common</module>
+        <!--听说项目-配置中心模块-->
         <module>tingshuo-config</module>
+        <module>tingshuo-redis</module>
     </modules>
     <properties>
         <!--项目依赖文件-->
@@ -94,6 +96,18 @@
             <version>42.2.12</version>
             <scope>runtime</scope>
         </dependency>
+        <!--连接非关系数据库redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.3.11.RELEASE</version>
+        </dependency>
+        <!--引入fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
 
     </dependencies>
     </dependencyManagement>
@@ -137,6 +151,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <!--连接非关系数据库redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.3.11.RELEASE</version>
         </dependency>
     </dependencies>
 

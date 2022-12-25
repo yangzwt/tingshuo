@@ -38,7 +38,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         PageResult pageResult = new PageResult();
         pageResult.setPageNum(pageNo);
         pageResult.setPageSize(pageSize);
-        pageResult.setTotalSize(new PageInfo(sysRoles).getTotal());//总数
+        //总数
+        pageResult.setTotalSize(new PageInfo(sysRoles).getTotal());
         pageResult.setContent(sysRoles);
         return pageResult;
     }

@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysRoleApi;
 import com.tingshuo.system.entity.SysRole;
-import com.tingshuo.system.param.SysRolePo;
+import com.tingshuo.system.vo.SysRoleVO;
 import com.tingshuo.system.service.ISysRoleService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +29,10 @@ public class SysRoleController implements SysRoleApi {
      */
 
     @Override
-    public PageResult selectUserRolePageList(Integer pageNo, Integer pageSize, SysRolePo sysRolePo) {
+    public PageResult selectUserRolePageList(Integer pageNo, Integer pageSize, SysRoleVO sysRoleVO) {
         SysRole  sysRole = new SysRole();
-        BeanUtils.copyProperties(sysRolePo,sysRole);//对象拷贝
+        //对象拷贝
+        BeanUtils.copyProperties(sysRoleVO,sysRole);
         return sysRoleService.selectRolePageList(pageNo,pageSize,sysRole);
     }
 }

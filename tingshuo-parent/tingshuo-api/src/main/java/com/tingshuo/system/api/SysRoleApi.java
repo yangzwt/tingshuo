@@ -1,7 +1,7 @@
 package com.tingshuo.system.api;
 
 import com.tingshuo.common.core.result.PageResult;
-import com.tingshuo.system.param.SysRolePo;
+import com.tingshuo.system.vo.SysRoleVO;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -18,5 +18,5 @@ public interface SysRoleApi {
     @PostMapping("/list")
     PageResult selectUserRolePageList(@RequestBody @RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
                                   @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
-                                  SysRolePo sysRolePo);
+                                  SysRoleVO sysRoleVO);
 }

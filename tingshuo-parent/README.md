@@ -1,4 +1,6 @@
 # 项目开发注意事项
+# 0. 使用的springboot和springcloud版本：
+    springboot +2.3.0.RELEASE+Hoxton.SR12
 # 1. springboot和SpringCloud版本对应关系
     https://start.spring.io/actuator/info
 # 2.spring官网地址,查看springboot版本

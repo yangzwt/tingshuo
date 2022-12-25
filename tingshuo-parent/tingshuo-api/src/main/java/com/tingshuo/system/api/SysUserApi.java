@@ -1,8 +1,11 @@
 package com.tingshuo.system.api;
 
 import com.tingshuo.common.core.result.PageResult;
-import com.tingshuo.system.param.SysUserPo;
-import org.springframework.web.bind.annotation.*;
+import com.tingshuo.system.vo.SysUserVO;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 类文件描述:
@@ -18,12 +21,12 @@ public interface SysUserApi {
      * 用户查询列表
      * @param pageNo
      * @param pageSize
-     * @param sysUserPo
+     * @param SysUserPo
      * @return
      */
     @PostMapping("/list")
     PageResult selectUserPageList(@RequestBody  @RequestParam(name="pageNo" ,defaultValue = "1") Integer pageNo,
                                          @RequestParam(name="pageSize",defaultValue = "15") Integer pageSize,
-                                         SysUserPo sysUserPo);
+                                         SysUserVO sysUserVO);
 
 }

@@ -20,5 +20,5 @@ public interface ISysMenuService extends IService <SysMenu> {
      * @param sysMenu
      * @return
      */
-    List<SysMenu> selectMenuList(Long userId,SysMenu sysMenu);
+    List<SysMenu> selectMenuList(String userId,SysMenu sysMenu);
 }

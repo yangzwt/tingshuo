@@ -1,8 +1,7 @@
 package com.tingshuo.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tingshuo.system.entity.SysLogin;
-
+import com.tingshuo.system.entity.SysUserPo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -13,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  *
  */
 @Mapper
-public interface SysLoginMapper extends BaseMapper<SysLogin> {
+public interface SysLoginMapper extends BaseMapper<SysUserPo> {
 
 }

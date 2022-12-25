@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tingshuo.system.mapper.SysUserMapper">
 
-	<resultMap type="com.tingshuo.system.entity.SysUser" id="SysUserResult">
+	<resultMap type="com.tingshuo.system.entity.SysUserPo" id="SysUserResult">
 		<id     property="userId"       column="user_id"      />
 		<result property="deptId"       column="dept_id"      />
 		<result property="userName"     column="user_name"    />
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    left join sys_role r on r.role_id = ur.role_id
     </sql>
 	<!--根据用户名查询用户信息-->
-	<select id="selectUserByUserName" parameterType="String" resultMap="SysUserResult">
+	<select id="selectUserByUserName" parameterType="java.lang.String" resultMap="SysUserResult">
 	    <include refid="selectUserVo"/>
 		where u.user_name = #{userName}
 	</select>
@@ -75,15 +75,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        where 1=1
 	</select>
 
-	<select id="getUserInfo" resultType="com.tingshuo.system.vo.LoginUserVo">
+	<select id="getUserInfo" parameterType="com.tingshuo.system.entity.SysUserPo" resultType="com.tingshuo.system.entity.SysUserPo">
 		SELECT
-			su.user_id  as userid,
-			su.user_name as username,
+			su.user_id  as userId,
+			su.user_name as userName,
 		    '' as token
 		FROM
 			sys_user su
 		where 1=1
-			and su.user_name =#{username}
+			and su.user_id =#{userId}
 	</select>
 
 
