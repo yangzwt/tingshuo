@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @version 1.0.0
  * @date 2021年12月15日 21:08
  **/
-public class LoginUserVo implements Serializable {
+public class LoginUserVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -17,16 +17,18 @@ public class LoginUserVo implements Serializable {
      * 用户唯一标识
      */
     private String token;
-
     /**
      * 用户名id
      */
-    private Long userid;
-
+    private String userId;
     /**
      * 用户名
      */
-    private String username;
+    private String userName;
+    /**
+     * 密码
+     */
+    private String password;
 
     public String getToken() {
         return token;
@@ -36,19 +38,27 @@ public class LoginUserVo implements Serializable {
         this.token = token;
     }
 
-    public Long getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

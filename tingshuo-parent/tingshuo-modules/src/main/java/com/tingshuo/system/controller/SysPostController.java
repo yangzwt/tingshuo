@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysPostApi;
 import com.tingshuo.system.entity.SysPost;
-import com.tingshuo.system.param.SysPostPo;
+import com.tingshuo.system.vo.SysPostVO;
 import com.tingshuo.system.service.ISysPostService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class SysPostController implements SysPostApi {
      * @return
      */
     @Override
-    public PageResult list(Integer pageNo, Integer pageSize, SysPostPo sysPostPo) {
+    public PageResult list(Integer pageNo, Integer pageSize, SysPostVO sysPostPo) {
         SysPost sysPost = new SysPost();
         BeanUtils.copyProperties(sysPostPo,sysPost);//对象拷贝
         return sysPostService.list(pageNo,pageSize,sysPost);

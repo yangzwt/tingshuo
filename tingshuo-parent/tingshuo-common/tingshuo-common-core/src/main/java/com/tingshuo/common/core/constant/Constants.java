@@ -1,6 +1,7 @@
 package com.tingshuo.common.core.constant;
 
 /**
+ * @author YangZong
  * @ClassName Constants
  * @Auth yangZ
  * @Date 2021-08-15 21:06
@@ -111,4 +112,23 @@ public class Constants {
      * 资源映射路径 前缀
      */
     public static final String RESOURCE_PREFIX = "/profile";
+    /**
+     * 项目统一请求的方式：GET请求
+     */
+    public static final String METHOD_GET="GET";
+    /**
+     * 项目统一请求的方式：POST请求
+     */
+    public static final String METHOD_POST="POST";
+    /**
+     * 用户登录使用的存储的key格式
+     */
+    public static final String USER_TOKEN_KEY="USER_TOKEN_KEY:";
+    /**
+     * KEY:用户权限URL
+     * 格式：USER_PERMISSION_URL_KEY_${userId}  固定字符串_userId
+     * 例如：USER_PERMISSION_URL_KEY_200
+     */
+    public static final String USER_PERMISSION_URL_KEY = "USER_PERMISSION_URL_KEY_%s";
+
 }

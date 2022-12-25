@@ -1,13 +1,5 @@
 package com.tingshuo.common.security.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 /**
  * 类文件描述:
  *
@@ -15,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @version 1.0.0
  * @date 2022年01月14日 19:14
  **/
-@Configuration
+/*@Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
@@ -47,4 +39,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and();
     }
-}
+}*/

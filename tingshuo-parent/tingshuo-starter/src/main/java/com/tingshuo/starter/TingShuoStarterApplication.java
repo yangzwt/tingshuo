@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 听说微服务，基础业务项目入口模块
- *@EnableEurekaClient 将当前项目注册到注册中心
+ *@author YangZong
+ * @EnableEurekaClient 将当前项目注册到注册中心
  * user：yangz
  */
 

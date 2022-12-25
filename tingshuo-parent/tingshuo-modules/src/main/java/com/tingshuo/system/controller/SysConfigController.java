@@ -3,7 +3,7 @@ package com.tingshuo.system.controller;
 import com.tingshuo.common.core.result.PageResult;
 import com.tingshuo.system.api.SysConfigApi;
 import com.tingshuo.system.entity.SysConfig;
-import com.tingshuo.system.param.SysConfigPo;
+import com.tingshuo.system.vo.SysConfigVO;
 import com.tingshuo.system.service.ISysConfigService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class SysConfigController implements SysConfigApi {
     @Autowired
     private ISysConfigService sysConfigService;
     @Override
-    public PageResult list(Integer pageNo, Integer pageSize, SysConfigPo sysConfigPo) {
+    public PageResult list(Integer pageNo, Integer pageSize, SysConfigVO sysConfigPo) {
         SysConfig sysConfig= new SysConfig();
         BeanUtils.copyProperties(sysConfigPo,sysConfig);//对象拷贝
         return sysConfigService.list(pageNo,pageSize,sysConfig);

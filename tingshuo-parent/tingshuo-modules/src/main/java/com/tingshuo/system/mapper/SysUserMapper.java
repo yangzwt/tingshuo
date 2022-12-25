@@ -1,9 +1,7 @@
 package com.tingshuo.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tingshuo.common.core.result.R;
-import com.tingshuo.system.entity.SysUser;
-import com.tingshuo.system.vo.LoginUserVo;
+import com.tingshuo.system.entity.SysUserPo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,25 +16,25 @@ import java.util.List;
  *
  */
 @Mapper
-public interface SysUserMapper  extends BaseMapper<SysUser> {
+public interface SysUserMapper  extends BaseMapper<SysUserPo> {
 
     /**
      * 查询用户列表
      * @param sysUser
      * @return
      */
-    List<SysUser> selectUserList(SysUser sysUser);
+    List<SysUserPo> selectUserList(SysUserPo sysUserPo);
     /**
      * 根据用户名查询用户信息
      * @param userName
      * @return SysUser
      */
-    SysUser selectUserByUserName(String userName);
+    SysUserPo selectUserByUserName(String userName);
 
     /**
      * 查看用户基本信息
      * @param username
      * @return
      */
-   LoginUserVo  getUserInfo(@Param("username") String username);
+    SysUserPo getUserInfo(@Param("userId") String userId);
 }

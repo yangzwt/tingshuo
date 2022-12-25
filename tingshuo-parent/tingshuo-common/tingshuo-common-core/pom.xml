@@ -49,6 +49,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--redis工具类-->
     </dependencies>
 
 </project>
