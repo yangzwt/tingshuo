@@ -1,5 +1,6 @@
 package com.tingshuo.system;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
  * @EnableHystrixDashboard 开启服务监控
  * @EnableCircuitBreaker 监控Servlet
  * @EnableTurbine 开启Turbine聚合监控数据
+ * @EnableApolloConfig 开启Apollo 配置中心
  * user：yangz
  */
 
@@ -29,6 +31,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrixDashboard
 @EnableCircuitBreaker
 @EnableTurbine
+@EnableApolloConfig
 public class TingShuoSystemApplication {
     /**
      * 实例化ribbon使用的RestTemplate

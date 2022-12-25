@@ -1,6 +1,7 @@
 package com.tingshuo.system.utils;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * 类文件描述:
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @version 1.0.0
  * @date 2022年02月05日 21:25
  **/
-//@Component
+@Component
 public class GitHubConfig {
     @Value("${server.port}")
     private String port;

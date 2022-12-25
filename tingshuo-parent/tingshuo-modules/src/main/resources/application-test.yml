@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9080
 #spring连接源
 spring:
   application:
@@ -79,7 +79,28 @@ turbine:
   # 集群名称，默认为应用名
   cluster-name-expression: new String("default")
 
-
+#app
+app:
+  id: app001
+#Apollo配置中心配置
+apollo:
+  #将服务信息，缓存到本地目录
+  cache-dir: I:/app/data/
+  #指定使用那个集群
+  cluster: default
+  #连接服务器的地址信息 即注册中心地址
+  meta: http://localhost:8080
+  #是否开启 spring参数自动更新
+  autoUpdateInjectedSpringProperties: true
+  bootstrap:
+    #是否开启apollo
+    enabled: true
+    #设置namespace
+    namespaces: application
+    eagerLoad:
+      #将Apollo 加载提到初始化日志系统之前
+      enabled: true
+test: 1000
 
 tingshuo:
   url: "/api/login,/api/user,/api/test,/api/**"
