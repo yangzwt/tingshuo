@@ -34,9 +34,10 @@ eureka:
       #模块之间跨域访问
       prefer-ip-address: true
     #false #是否将自己注册到Eureka服务中
-    register-with-eureka: true
+    register-with-eureka: false
     #false #是否从Eureka中获取注册信息
-    fetch-registry: true
+    fetch-registry: false
+
 
 
 
