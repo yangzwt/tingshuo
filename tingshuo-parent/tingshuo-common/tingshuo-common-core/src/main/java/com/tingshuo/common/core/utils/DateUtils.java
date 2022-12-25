@@ -1,10 +1,12 @@
 package com.tingshuo.common.core.utils;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
  * 时间工具类
@@ -151,5 +153,110 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
         // 计算差多少秒//输出结果
         // long sec = diff % nd % nh % nm / ns;
         return day + "天" + hour + "小时" + min + "分钟";
+    }
+    /**
+     * 判断当前时间在时间区间内
+     * @param nowTime   需要比较的时间：新输入的时间
+     * @param startTime 开始时间
+     * @param endTime   结束时间=开始时间+限定的时间
+     * @return
+     */
+    public static boolean istTimeFrame(Date nowTime, Date startTime, Date endTime) {
+        if (nowTime.getTime() == startTime.getTime()
+                || nowTime.getTime() == endTime.getTime()) {
+            return true;
+        }
+        Calendar date = Calendar.getInstance();
+        date.setTime(nowTime);
+
+        Calendar begin = Calendar.getInstance();
+        begin.setTime(startTime);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(endTime);
+
+        if (date.after(begin) && date.before(end)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 设置30分钟
+     * @param date
+     * @return
+     */
+    public static Date addDate(Date date){
+        long time = date.getTime();
+        time +=30*60*1000;//30 分钟
+        Date datenew= new Date(time);
+        return datenew;
+    }
+
+    /**
+     *
+     * @param startTime 开始时间
+     * @return 加5分钟的时间
+     */
+    public static Date addFiveMinutes(Date startTime){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(startTime);
+        cal.add(Calendar.MINUTE, 5);// 24小时制 5分钟
+        Date endTime = cal.getTime();
+        return endTime;
+    }
+
+    /**
+     *
+     * @param startTime 开始时间
+     * @return 加10分钟的时间
+     */
+    public static Date addTenMinutes(Date startTime){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(startTime);
+        cal.add(Calendar.MINUTE, 10);// 24小时制 10分钟
+        Date endTime = cal.getTime();
+        return endTime;
+    }
+
+    /**
+     *
+     * @param startTime 开始时间
+     * @return 加30分钟的时间
+     */
+
+    public static Date addThirtyMinutes(Date startTime){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(startTime);
+        cal.add(Calendar.MINUTE, 30);// 24小时制 30分钟
+        Date endTime = cal.getTime();
+        return endTime;
+    }
+    /**
+     * 设置1个小时
+     * @param startTime 开始时间
+     * @return 加1小时的时间
+     */
+    public static Date addOneHour(Date startTime){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(startTime);
+        cal.add(Calendar.HOUR, 1);// 24小时制
+        Date endTime = cal.getTime();
+        return endTime;
+    }
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date startTime = ft.parse("2019-06-05 03:26:54");
+
+        Date endTime = addOneHour(startTime);
+        Date nowTime = ft.parse("2019-06-05 03:27:55");
+        //Date nowTime = new Date();
+        boolean effectiveDate = istTimeFrame(nowTime, startTime, endTime);
+        if (effectiveDate) {
+            System.out.println("当前时间在范围内");
+        } else {
+            System.out.println("当前时间在不在范围内");
+        }
     }
 }
