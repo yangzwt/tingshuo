@@ -1,0 +1,48 @@
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- 引入element-ui样式测试 2022-12-31 -->
+    <el-tag>初始化工程-添加element-ui测试</el-tag>
+    <i class="fa fa-book">font-awesome字体测试</i>
+    <el-button>默认按钮</el-button>
+    <el-button type="primary">主要按钮</el-button>
+    <el-button type="success">成功按钮</el-button>
+    <el-button type="info">信息按钮</el-button>
+    <el-button type="warning">警告按钮</el-button>
+    <el-button type="danger">危险按钮</el-button>
+    <!-- 显示当前时间插件 -->
+    <el-calendar v-model="value">
+    </el-calendar>
+  </div>
+
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+// 一个文件里面只允许一个导出方法
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  data () {
+    return {
+      value: new Date()
+    }
+  }
+}
+
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+ -->
