@@ -64,7 +64,7 @@ export default {
         data:{userId:userId,password:password}
       }).then(res=>{//res后端接口返回的结果
         console.log(res);
-        let {code,msg}=res.data;// eslint-disable-line no-unused-vars
+        let {code,msg}=res.data;
         if(code=='200'){
           console.log(res);
           //缓存用户到浏览器
