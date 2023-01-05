@@ -53,7 +53,7 @@ npm install vue-router --save
 const router = new VueRouter({
 
  	mode: 'hash',
-
+ 	
  	//可以配置hash和history
 
 ​	 routes
@@ -66,7 +66,21 @@ export default router
 
 ​	发送真实请求
 
+###### 6.页面布局
 
+1. 页面菜单固定
+
+   选择菜单时，主页展示对应的菜单内容
+
+2. 页面导航布局
+
+   左侧菜单。头部信息、面包屑、居中内容展示、右侧退出和消息提醒等
+
+3. 页面面包屑
+
+   面包屑：1.获取URL地址；2.将地址转换为中文名称
+
+   使用技术：watch监听路由，获取路由的对象：this.$route.matched
 
 #### 项目部署
 

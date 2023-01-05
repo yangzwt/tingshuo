@@ -21,22 +21,26 @@ const routes = [
   {
     path: '/home',
     name: 'home',
+    meta:{title:'主页'},
     component: () => import('../views/Home/index.vue'),
     //多个菜单下面的子集
     children: [
       {
         path: '/index',
         name: 'index',
+        meta:{title:'首页'},
         component: () => import('../views/Home/index/index.vue'),
       },
       {
         path: '/user',
         name: 'user',
+        meta:{title:'用户'},
         component: () => import('../views/Home/user/index.vue')
       },
       {
         path: '/showlog/list',
         name: 'showlog',
+        meta:{title:'查看日志'},
         component: () => import('../views/Log/log.vue')
       }
     ]

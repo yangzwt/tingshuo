@@ -12,12 +12,7 @@
         <!-- 头部信息 -->
         <el-header style="text-align: right; font-size: 12px">
           <!--面包屑  -->
-          <!-- <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-          </el-breadcrumb> -->
+          <Breadcrumb></Breadcrumb>
           <div>
             <el-badge :value="12" class="item">
               <el-button size="small">未读消息</el-button>
@@ -53,10 +48,12 @@
 </template>
 
 <script >
-import Nav from "./Nav"; 
+import Nav from "./Nav";
+import Breadcrumb from "./Breadcrumb";
 export default {
   components: {
     Nav,
+    Breadcrumb
   },
   data() {
     return {
