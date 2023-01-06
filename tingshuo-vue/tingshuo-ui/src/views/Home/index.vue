@@ -26,7 +26,7 @@
             </el-dropdown-menu>
           </el-dropdown>
           <span>王小虎</span>
-            <el-button class="exit" type="primary">退出系统</el-button>
+            <el-button class="exit" type="primary" @click="goExit()">退出系统</el-button>
           </div>
         </el-header>
 
@@ -60,6 +60,14 @@ export default {
       value: new Date(),
     };
   },
+  methods:{
+    goExit(){
+      this.$router.push("/login");
+      //退出时清空缓存信息
+      sessionStorage.removeItem("userId");
+      sessionStorage.removeItem("userInfo");
+    }
+  }
 };
 </script>
 
