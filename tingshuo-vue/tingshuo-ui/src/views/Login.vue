@@ -13,7 +13,8 @@
           <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="用户密码"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="login()">登录</el-button>
+          <!-- <el-button type="primary" @click="login()">登录</el-button> -->
+          <el-button type="primary" v-on:click="login()">登录</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -82,7 +83,23 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
+// 监听回车键执行事件
+keyDown (e) {
+      // 回车则执行登录方法 enter键的ASCII是13
+      if (e.keyCode === 13) {
+        this.login() // 需要执行的方法方法
+      }
+    }
   },
+  // 绑定监听事件
+  mounted () {
+    window.addEventListener('keydown', this.keyDown)
+  },
+  // 销毁事件
+  destroyed () {
+    window.removeEventListener('keydown', this.keyDown, false)
+  },
+
 };
 </script>
 

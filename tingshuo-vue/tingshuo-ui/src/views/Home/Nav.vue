@@ -38,10 +38,6 @@ export default {
           url: "/user"
         },
         {
-          name: "系统管理",
-          url: "/user"
-        },
-        {
           name: "日志管理",
           url: "/showlog",
           child: [

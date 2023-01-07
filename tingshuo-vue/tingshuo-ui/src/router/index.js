@@ -35,7 +35,8 @@ const routes = [
         path: '/user',
         name: 'user',
         meta: { title: '用户' },
-        component: () => import('../views/Home/user/index.vue')
+        //component: () => import('../views/Home/user/index.vue')
+        component: () => import('../views/System/user/User.vue')
       },
       {
         path: '/showlog/list',
