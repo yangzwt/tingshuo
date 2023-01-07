@@ -2,7 +2,7 @@
   <div class="home">
     <h1>home</h1>
     <!-- 显示当前时间插件 -->
-    <el-calendar v-model="value"> </el-calendar>
+    <!-- <el-calendar v-model="value"> </el-calendar> -->
     <!--左侧导航开始-->
     <el-container>
       <Nav></Nav>

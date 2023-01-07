@@ -151,6 +151,10 @@ router.beforeEach(function (to, from, next) {
 
 })
 
+###### 9.组件递归
+
+
+
 #### 项目部署              
 
 ###### 	1.项目安装依赖
