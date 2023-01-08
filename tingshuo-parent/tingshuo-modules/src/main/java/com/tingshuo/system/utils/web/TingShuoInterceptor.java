@@ -48,6 +48,7 @@ public class TingShuoInterceptor implements HandlerInterceptor {
             //3.判断请求头的请求的值，是否在redis中存在
             //if (header != null) {
             if (header == null) {
+                /*
                 String tokenKey = Constants.USER_TOKEN_KEY+Constants.USER_TOKEN_KEY + header;
                 String key="name0";
                 String s = redisTemplate.opsForValue().get(key).toString();
@@ -64,8 +65,9 @@ public class TingShuoInterceptor implements HandlerInterceptor {
                 //5.为当前用户增加到期时间
 
                 redisUtils.setExpire(tokenKey, Constants.TOKEN_EXPIRE);
-                //6.URL权限认证校验
-                return checkUrl(response, request.getRequestURI(), sysUserPo, "ip", request.getMethod(), printParams(request));
+                //6.URL权限认证校验*/
+                //return checkUrl(response, request.getRequestURI(), sysUserPo, "ip", request.getMethod(), printParams(request));
+                return  true;
             }
         }
         return true;

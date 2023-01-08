@@ -1,6 +1,7 @@
 package com.tingshuo.system.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tingshuo.common.core.web.entity.BaseEntity;
 
 import java.util.Date;
 
@@ -11,7 +12,7 @@ import java.util.Date;
  * @author yangz
  */
 
-public class SysUserVO {
+public class SysUserVO extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     /**

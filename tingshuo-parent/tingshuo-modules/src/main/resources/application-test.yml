@@ -33,6 +33,7 @@ tingshuo-activity:
 
 #注册中心相关配置
 eureka:
+
   instance:
     # 应用实例主机名
     #hostname: eurekaClient
@@ -40,6 +41,7 @@ eureka:
     prefer-ip-address: false
     ip-address: 127.0.0.1
   client:
+    enable: true
     service-url:
       # Eureka客户端与Eureka服务端进行交互的地址
       defaultZone: http://tingshuo:tingshuo123yz@192.168.1.8:8761/eureka

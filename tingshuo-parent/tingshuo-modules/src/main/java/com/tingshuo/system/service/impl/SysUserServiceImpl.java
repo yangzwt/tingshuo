@@ -45,7 +45,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUserPo> im
      * 用户分页查询业务逻辑
      * @param pageNo
      * @param pageSize
-     * @param sysUser
+     * @param SysUserPo
      * @return
      */
     @Override

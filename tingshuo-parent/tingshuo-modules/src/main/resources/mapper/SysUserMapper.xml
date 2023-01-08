@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    <include refid="selectUserVo"/>
 		where u.user_name = #{userName}
 	</select>
-    <select id="selectUserList" resultMap="SysUserResult">
+    <select id="selectUserList" parameterType="com.tingshuo.system.entity.SysUserPo" resultMap="SysUserResult">
 		SELECT
 			su.user_id ,
 			su.user_name ,
@@ -73,6 +73,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			sys_user su
 	        where 1=1
+		<if test="userName != null and userName != ''">
+			AND su.user_name like concat('%', #{userName}, '%')
+		</if>
 	</select>
 
 	<select id="getUserInfo" parameterType="com.tingshuo.system.entity.SysUserPo" resultType="com.tingshuo.system.entity.SysUserPo">

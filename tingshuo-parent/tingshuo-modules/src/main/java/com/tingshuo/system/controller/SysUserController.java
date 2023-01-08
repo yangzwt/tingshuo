@@ -63,11 +63,11 @@ public class SysUserController implements SysUserApi {
      * 用户分页查询
      * @param pageNo
      * @param pageSize
-     * @param SysUserPo
+     * @param sysUserVO
      * @return
      */
     @Override
-    public PageResult selectUserPageList(Integer pageNo, Integer pageSize, SysUserVO sysUserVO) {
+    public PageResult selectUserPageList(SysUserVO sysUserVO,Integer pageNo, Integer pageSize) {
         SysUserPo sysUserPo = new SysUserPo();
         BeanUtils.copyProperties(sysUserVO,sysUserPo);//对象拷贝
         return sysUserService.selectUserPageList(pageNo,pageSize,sysUserPo);
