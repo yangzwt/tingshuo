@@ -25,9 +25,7 @@
               </el-dropdown-menu>
             </el-dropdown>
             <span>王小虎</span>
-            <el-button class="exit" type="primary" @click="goExit()"
-              >退出系统</el-button
-            >
+            <el-button class="exit" type="primary" @click="goExit()">退出系统</el-button>
           </div>
         </el-header>
 
