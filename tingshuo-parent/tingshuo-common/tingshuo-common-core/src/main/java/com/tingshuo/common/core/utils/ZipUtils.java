@@ -6,12 +6,23 @@ import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.model.enums.CompressionLevel;
 import net.lingala.zip4j.model.enums.EncryptionMethod;
+import org.apache.commons.logging.Log;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.aspectj.util.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * 类文件描述:
@@ -22,6 +33,8 @@ import java.util.List;
  * @date 2023年01月12日 20:51
  **/
 public class ZipUtils {
+
+    private static final Logger log = LoggerFactory.getLogger(ZipUtils.class);
     /**
      * 压缩单个文件
      *
@@ -83,7 +96,7 @@ public class ZipUtils {
      * @param password    对应的密码
      * @param file        文件目录
      */
-    public static void ZipMenu(String fileZipName, String password, File file) {
+    public  boolean ZipMenu(String fileZipName, String password, File file) {
         ZipParameters zipParameters = new ZipParameters();
         zipParameters.setEncryptFiles(true);
         zipParameters.setCompressionLevel(CompressionLevel.HIGHER);
@@ -92,8 +105,10 @@ public class ZipUtils {
         ZipFile zipFile = new ZipFile(fileZipName, password.toCharArray());
         try {
             zipFile.addFolder(file, zipParameters);
+            return true;
         } catch (ZipException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -179,17 +194,36 @@ public class ZipUtils {
         File file = new File("D:\\testZip\\0001.txt");
         File file2 = new File("D:\\testZip\\0002.txt");
         //压缩单个文件
-        ZipFile(file, "123456", "test01.zip");
+        //ZipFile(file, "123456", "test01.zip");
         List<File> list = new ArrayList<File>();
         list.add(file);
         list.add(file2);
         //压缩多个文件
-        ZipFileList(list, "123456", "test02.zip");
-        File path= new File("D:\\testZip\\");
-        //ZipMenu("test02.zip","123456",path);
+        //ZipFileList(list, "123456", "test02.zip");
+        String pathOld="D:\\testZip\\";
+        File path= new File(pathOld);
+        String newPath="D:\\testNew\\"+"testZipNew.zip";
+      /*  boolean b = ZipMenu(newPath, "123456", path);
+        if (b){
+            Path path1 = Paths.get(pathOld);
+            try {
+                Stream<Path> walk = Files.walk(path1);
+                walk.sorted(Comparator.reverseOrder()).forEach(ZipUtils::deleteDirectoryStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
         //解压多个文件
         //UnZipAll("test02.zip","123456","D:\\testZip");
         //解压当个文件
-        unzipFile("test02.zip","123456","0001.txt","D:\\testZip\\0\\");
+        //unzipFile("test02.zip","123456","0001.txt","D:\\testZip\\0\\");
+    }
+    public void deleteDirectoryStream(Path path) {
+        try {
+            Files.delete(path);
+            log.info("删除文件成功：%s%n", path.toString());
+        } catch (IOException e) {
+            log.error("无法删除的路径 %s%n%s", path, e);
+        }
     }
 }
