@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-carousel :interval="4000" type="card" height="200px">
+  <div class="box">
+    <el-carousel :interval="4000" type="card" height="300px">
       <el-carousel-item v-for="item in items" :key="item">
         <img :src ="item"/>
       </el-carousel-item>
@@ -9,6 +9,7 @@
 </template>
 <script>
 export default {
+  name:'Carousel',
   data() {
     return {
       items: [
@@ -26,6 +27,20 @@ export default {
 </script>
 
 <style>
+.box{
+  display: inline-block;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+img{
+  display: inline-block;
+  height: 300px;
+  background-size:cover;
+  background-position:center;
+  background-color: rgb(100, 11, 201);
+}
 /* .el-carousel__item h3 {
   color: #f60e06;
   font-size: 18px;

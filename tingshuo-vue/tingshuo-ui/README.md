@@ -2,9 +2,31 @@
 
 tingshuo-ui
 
+技术选型：
+
+1. Vue2.5.1+
+2. Vue-router
+3. Element-UI
+4. Axios
+5. Echars
+
+
+
 ## 	1.项目创建
 
-​	vue create tingshuo-ui
+安装脚手架
+
+通过vue脚手架创建vue create tingshuo-ui
+
+或cmd命令行执行 vue ui
+
+C:\Users\YangZong>vue ui
+🚀  Starting GUI...
+🌠  Ready on http://localhost:8001
+
+访问地址：http://localhost:8001/project/select
+
+
 
 ## 2.引入element-ui
 
@@ -160,6 +182,12 @@ router.beforeEach(function (to, from, next) {
 3. 用户跑马灯效果即页面轮播效果；
 
 ## 11.动态获取菜单
+
+
+
+## 12.页面布局样式
+
+
 
 
 

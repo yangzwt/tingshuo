@@ -6,11 +6,11 @@ Vue.use(VueRouter)
 //配置静态路由
 const routes = [
   {
-    path: '/',
+    path: '/home',
     //name: "Home",
     //component: Home,
     //重定向到某个页面
-    redirect: '/home'
+    redirect: '/index'
 
   },
   {

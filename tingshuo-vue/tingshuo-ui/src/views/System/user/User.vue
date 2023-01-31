@@ -148,3 +148,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.block{
+  margin-top: 20px;
+}
+</style>

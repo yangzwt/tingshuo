@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
   
     <router-view></router-view>
     <!-- <el-calendar v-model="value">
