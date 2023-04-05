@@ -1,6 +1,8 @@
 package com.tingshuo.system.file.controller;
 
+import com.tingshuo.common.core.utils.DateUtils;
 import com.tingshuo.common.core.utils.ZipUtils;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +34,7 @@ public class ZipFileController {
         ZipUtils zipUtil = new ZipUtils();
         String fileNameNew = "testZipNew.zip";
         String newPath = "D:\\testNew\\";
+        String newPathNew = "D:\\testNewNew\\";
         String newPathFileName = newPath + fileNameNew;
         try {
            /* File file = new File(fileUrl);
@@ -42,9 +45,20 @@ public class ZipFileController {
             b = zipUtil.ZipMenu(newPathFileName, "123456", path);
             // 以流的形式下载文件。
             InputStream fis = new BufferedInputStream(new FileInputStream(newPathFileName));
+
             byte[] buffer = new byte[fis.available()];
             fis.read(buffer);
-            fis.close();
+            //FileUtils.copyInputStreamToFile(fis,new File(newPathFileName));
+            byte [] data=getByteData(fis);
+            File file = new File(newPathNew + DateUtils.dateTimeNow());
+            if (!file.exists()){
+                file.mkdir();
+            }
+            File file1 = new File(file + File.separator + fileNameNew);
+            FileOutputStream fileOutputStream = new FileOutputStream(file1);
+            fileOutputStream.write(data);
+            fileOutputStream.close();
+            //fis.close();
             // 清空response
             response.reset();
 
@@ -59,6 +73,7 @@ public class ZipFileController {
             e.printStackTrace();
             logger.error("下载文件失败");
         } finally {
+
             if (b) {
                 //下载成功删除文件
                 Path path1 = Paths.get(pathOld);
@@ -74,4 +89,17 @@ public class ZipFileController {
             }
         }
     }
+    public byte [] getByteData(InputStream inputStream) throws IOException{
+        byte []  b =new byte[1024];
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int len=0;
+        while (( len=inputStream.read(b)) !=-1){
+            byteArrayOutputStream.write(b,0,len);
+        }if (byteArrayOutputStream!=null){
+            byteArrayOutputStream.close();
+        }
+        return byteArrayOutputStream.toByteArray();
+
+    }
+
 }

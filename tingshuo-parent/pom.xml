@@ -27,7 +27,7 @@
         <module>tingshuo-common</module>
         <!--听说项目-配置中心模块-->
         <module>tingshuo-config</module>
-        <module>tingshuo-redis</module>
+        <!--<module>tingshuo-redis</module>-->
     </modules>
     <properties>
         <!--项目依赖文件-->
@@ -108,7 +108,38 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.75</version>
         </dependency>
-
+        <!--ES客户端es依赖
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>7.6.2</version>
+        </dependency>-->
+        <!--spring Data elasticsearch 依赖 -->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <version>2.3.0.RELEASE</version>
+        </dependency>-->
+       <!-- <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-client</artifactId>
+            <version>7.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>7.6.2</version>
+        </dependency>-->
     </dependencies>
     </dependencyManagement>
 
@@ -158,6 +189,7 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.3.11.RELEASE</version>
         </dependency>
+
     </dependencies>
 
 

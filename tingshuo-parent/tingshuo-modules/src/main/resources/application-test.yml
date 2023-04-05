@@ -1,5 +1,5 @@
 server:
-  port: 9080
+  port: 7080
 #spring连接源
 spring:
   application:
@@ -22,6 +22,9 @@ spring:
     host: 127.0.0.1
     port: 6379
     timeout: 5000
+  elasticsearch:
+    rest:
+      uris: http://127.0.0.1:9200
 #使用注册中心的名字即可
 tingshuo-activity:
   #使用ribbon 负载均衡
@@ -106,3 +109,7 @@ test: 1000
 
 tingshuo:
   url: "/api/login,/api/user,/api/test,/api/**"
+#引入es客户端
+elasticsearch:
+  rest:
+    hosts: 127.0.0.1:9200

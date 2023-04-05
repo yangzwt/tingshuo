@@ -23,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
  * @EnableTurbine 开启Turbine聚合监控数据
  * @EnableApolloConfig 开启Apollo 配置中心
  * user：yangz
+ * @author :yangz
  */
 
 @SpringBootApplication

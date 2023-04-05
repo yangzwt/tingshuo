@@ -16,4 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface SysMenuApi {
     @GetMapping("/list")
     AjaxResult list(SysMenuVO sysMenuVO);
+    @GetMapping("/treeselect")
+    public AjaxResult treeselect(SysMenuVO sysMenuVO);
 }

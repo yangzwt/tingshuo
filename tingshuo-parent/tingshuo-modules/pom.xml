@@ -90,6 +90,32 @@
            <artifactId>apollo-client</artifactId>
            <version>1.9.2</version>
        </dependency>
+       <!--<dependency>
+           <groupId>com.tingshuo</groupId>
+           <artifactId>tingshuo-gateway</artifactId>
+           <version>1.0.0</version>
+       </dependency>-->
+       <!--Es客户端-->
+       <dependency>
+           <groupId>org.elasticsearch.client</groupId>
+           <artifactId>elasticsearch-rest-high-level-client</artifactId>
+           <version>7.6.2</version>
+       </dependency>
+       <dependency>
+           <groupId>org.elasticsearch.client</groupId>
+           <artifactId>elasticsearch-rest-client</artifactId>
+           <version>7.6.2</version>
+       </dependency>
+       <!--ES版本兼容-->
+       <dependency>
+           <groupId>org.elasticsearch</groupId>
+           <artifactId>elasticsearch</artifactId>
+           <version>7.6.2</version>
+       </dependency>
+       <dependency>
+           <groupId>com.alibaba</groupId>
+           <artifactId>fastjson</artifactId>
+       </dependency>
 
    </dependencies>
     <build>

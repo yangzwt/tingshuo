@@ -16,7 +16,7 @@
 # 9.完成基本分页查询操作：2021年12月14日22:50:59 
 # 10.完成分层开发，待实现登录流程 2021年12月15日21:35:26
 # 11.基础业务开发:
-	
+
 1. 完成用户基本信息查询；
 
 2. 完成基本用户登录操作；
@@ -60,9 +60,9 @@
 	spring:
 		sleuth:
 			sampler:
-        		probability: 1.0 #日志采用级别1.0 表示全部采集
-    	zipkin:
-        	base-url: http://localhost:9411 # 指定zipkin服务器的地址和端口号
+	    		probability: 1.0 #日志采用级别1.0 表示全部采集
+		zipkin:
+	    	base-url: http://localhost:9411 # 指定zipkin服务器的地址和端口号
 			sender:
 				type: web ## 设置用http方式传输数据
 ## 注意日志讲解
@@ -80,13 +80,13 @@
 zipkin默认支持mysql
 ## 修改为
     postgresql:
-		host: ${PG_HOST:localhost}
-		port: ${PG_TCP_PORT:3306}
-		username: ${PG_USER:}
-		password: ${PG_PASS:}
-		db: ${PG_DB:zipkin}
-		max-active: ${PG_MAX_CONNECTIONS:10}
-		use-ssl: ${PG_USE_SSL:false}
+    	host: ${PG_HOST:localhost}
+    	port: ${PG_TCP_PORT:3306}
+    	username: ${PG_USER:}
+    	password: ${PG_PASS:}
+    	db: ${PG_DB:zipkin}
+    	max-active: ${PG_MAX_CONNECTIONS:10}
+    	use-ssl: ${PG_USE_SSL:false}
 #17.使用ribbon进行负载均衡
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -105,7 +105,7 @@ zipkin默认支持mysql
     ##tingshuo-activity 是注册中心服务名称
     @Autowired
     RestTemplate restTemplate;
-
+    
     @RequestMapping(value = "/helloTest",method = RequestMethod.GET)
     public String helloTest(){
         return restTemplate.getForObject("http://tingshuo-activity/hello",String.class);
@@ -201,39 +201,82 @@ zipkin默认支持mysql
         #聚合哪些集群，默认为default，多个,隔开
         aggregator:
             cluster-config: default
+
         # 集群名称，默认为应用名
-        cluster-name-expression: new String("default")
-    4.使用方式和上面一致
+​        cluster-name-expression: new String("default")
+​    4.使用方式和上面一致
 #19.使用config配置中心
 #20.使用Apollo配置中心，支持动态实时更新
 ##1.配置文件使用
-    #app
-    app:
-        id: app001
-        #Apollo配置中心配置
-    apollo:
-        #将服务信息，缓存到本地目录
-        cache-dir: I:/app/
-        #指定使用那个集群
-        cluster: default
-        #连接服务器的地址信息 即注册中心地址
-        meta: http://localhost:8080
-        #是否开启 spring参数自动更新
-        autoUpdateInjectedSpringProperties: true
-            bootstrap:
-            #是否开启apollo
-                enabled: true
-            #设置namespace
-                namespaces: application
-                eagerLoad:
-            #将Apollo 加载提到初始化日志系统之前
-                    enabled: true
+​    #app
+​    app:
+​        id: app001
+​        #Apollo配置中心配置
+​    apollo:
+​        #将服务信息，缓存到本地目录
+​        cache-dir: I:/app/
+​        #指定使用那个集群
+​        cluster: default
+​        #连接服务器的地址信息 即注册中心地址
+​        meta: http://localhost:8080
+​        #是否开启 spring参数自动更新
+​        autoUpdateInjectedSpringProperties: true
+​            bootstrap:
+​            #是否开启apollo
+​                enabled: true
+​            #设置namespace
+​                namespaces: application
+​                eagerLoad:
+​            #将Apollo 加载提到初始化日志系统之前
+​                    enabled: true
 ##2.pom.xml
-    <!--Apollo配置中心配置-->
-       <dependency>
-           <groupId>com.ctrip.framework.apollo</groupId>
-           <artifactId>apollo-client</artifactId>
-           <version>1.9.2</version>
-       </dependency>
+​    <!--Apollo配置中心配置-->
+​       <dependency>
+​           <groupId>com.ctrip.framework.apollo</groupId>
+​           <artifactId>apollo-client</artifactId>
+​           <version>1.9.2</version>
+​       </dependency>
 ##3.启动类新增支持
-    @EnableApolloConfig
+​    @EnableApolloConfig
+
+### 23.安装elk
+
+#### 1.Windows安装
+
+下载elasticsearch、elasticsearch-head、kibana-7.6.2、logstash、filebate、kafaka安装包
+
+##### 1.1、跨越访问设置
+
+修改es的config目录下的elasticsearch.yml文件，添加
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+启动：I:\14elk\elasticsearch-7.6.2\bin\elasticsearch.bat
+
+http://127.0.0.1:9200
+
+##### 1.2、安装elasticsearch-head
+
+全局安装：npm install -g grunt-cli
+
+进入head的安装目录，运行npm install
+
+启动：npm run start 
+
+http://127.0.0.1:9100/
+
+##### 1.3、安装kibana
+
+修改汉化版
+
+I:\14elk\kibana-7.6.2\config\kibana.yml
+
+#i18n.locale: "en"
+i18n.locale: "zh-CN"
+
+启动：I:\14elk\kibana-7.6.2\bin\kibana.bat 
+
+http://localhost:5601/
+
+#### 2.linux安装

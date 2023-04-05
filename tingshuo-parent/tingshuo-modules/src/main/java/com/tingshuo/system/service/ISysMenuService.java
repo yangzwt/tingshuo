@@ -2,6 +2,7 @@ package com.tingshuo.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.tingshuo.system.entity.SysMenu;
+import com.tingshuo.system.entity.TreeSelect;
 
 import java.util.List;
 
@@ -21,4 +22,18 @@ public interface ISysMenuService extends IService <SysMenu> {
      * @return
      */
     List<SysMenu> selectMenuList(String userId,SysMenu sysMenu);
+    /**
+     * 构建前端所需要树结构
+     *
+     * @param menus 菜单列表
+     * @return 树结构列表
+     */
+    public List<SysMenu> buildMenuTree(List<SysMenu> menus);
+    /**
+     * 构建前端所需要下拉树结构
+     *
+     * @param menus 菜单列表
+     * @return 下拉树结构列表
+     */
+    public List<TreeSelect> buildMenuTreeSelect(List<SysMenu> menus);
 }
