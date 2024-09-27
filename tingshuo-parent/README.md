@@ -281,6 +281,6 @@ http://localhost:5601/
 
 #### 2.linux安装
 
-24.改用本地gitlab开发
+## 24.改用本地gitlab开发
 2024年9月27日22:09:47
-25.改用docker镜像部署
+## 25.改用docker镜像部署
