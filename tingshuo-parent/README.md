@@ -280,3 +280,6 @@ i18n.locale: "zh-CN"
 http://localhost:5601/
 
 #### 2.linux安装
+
+24.改用本地gitlab开发
+2024年9月27日22:09:47
