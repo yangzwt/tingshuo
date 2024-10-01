@@ -27,6 +27,7 @@
         <module>tingshuo-common</module>
         <!--听说项目-配置中心模块-->
         <module>tingshuo-config</module>
+        <module>tingshuo-demo</module>
         <!--<module>tingshuo-redis</module>-->
     </modules>
     <properties>
