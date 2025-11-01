@@ -63,6 +63,10 @@ Map：掌握HashMap、TreeMap、LinkedHashMap等的不同之处，特别是键�
 关注Java新版本中集合框架的更新和发展趋势。
 参与社区讨论，了解业界最佳实践。
 按照这个路线图，你可以系统地学习Java集合框架，并能够灵活运用到实际开发中去
+### java基本类型
+数据类型 
+	基本类型 ：数值型（整数类型：byte、short、int、long;浮点类型：float、double）、字符型（char）、布尔类型（boolean）
+	引用数据类型：类（class）、接口（interface）、数组、枚举等
 
 
 
