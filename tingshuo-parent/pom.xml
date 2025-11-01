@@ -29,6 +29,7 @@
         <module>tingshuo-config</module>
         <module>tingshuo-demo</module>
         <!--<module>tingshuo-redis</module>-->
+        <module>tingshuo-ai</module>
     </modules>
     <properties>
         <!--项目依赖文件-->
